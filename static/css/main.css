@@ -101,7 +101,7 @@ body {
   -ms-grid-column: 5;
   -ms-grid-column-span: 3;
   grid-area: second;
-  z-index: 20;
+  z-index: 2;
   width: 200px;
   background-color: #282730;
 }
@@ -117,7 +117,7 @@ body {
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
-  z-index: 5;
+  z-index: 2;
 }
 
 .index_main .fourth {
