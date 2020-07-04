@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
         <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Noto+Serif&family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
         <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
-        <title>BBCF - Black British Classifical Foundation</title>
+        <title>BBCF - {% block title %} {% endblock %}</title>
     </head>
     <body>
         <div class="wrapper">
@@ -18,7 +18,7 @@
             </div>
             <nav class="nav_bar">
                 <div class="nav_header">
-                    <img class="nav_logo" src="/static/images/logo.png">
+                    <img class="nav_logo" src="{{ url_for('static', filename='images/logo.png') }}">
                 </div>
                 <ul class="nav_items">
                     <li><a href="/index.html">Home</a></li>
@@ -39,7 +39,35 @@
             <div class="main">
                 <div class="content">
                     <div class="index_main section_margins">
-                        <h1>THIS IS A HUGE TEXT</h1>
+                        <div class="first stick_box">
+                            <div class="stick">
+                                <!-- for the blue stick -->
+                            </div>
+                            <div class="content">
+                                <h4>We are the Black British Classical Foundation</h4>
+                                <p>We exist to nurture interest and participation in classical arts, especially in communities of colour in the UK and beyond.</p>
+                            </div>
+                        </div>
+                        <div class="second image1">
+                            IMAGE1
+                        </div>
+                        <div class="third image2">
+                            <div class="bgbox1">
+                                <!-- background box -->
+                            </div>
+                            IMAGE2
+                        </div>
+                        <div class="fourth stick_box">
+                            <div class="stick">
+                                <!-- for the blue stick -->
+                            </div>
+                            <div class="content">
+                                <div class="bgbox2">
+                                    <!-- background box -->
+                                </div>
+                                Watch the film
+                            </div>
+                        </div>
                     </div>
 
                     <div class="index_events section_margins">
@@ -103,6 +131,27 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="event">
+                                <div class="event_main">
+                                    <div class="stick">
+                                        <!-- for the blue flag stick -->
+                                    </div>
+                                    <div class="box_content">
+                                        <div class="box_title">
+                                            <div class="box_dates">
+                                                6 September
+                                            </div>
+                                            <h5>Sunset song recital at Suffolk Pianos - London</h5>
+                                        </div>
+                                        <div class="box_text">
+                                            Join award winning live musician Michaela Allen and classical singer Anna Llewellyn for a live-streamed concert hosted by Suffolk Pianos.
+                                        </div>
+                                    </div>
+                                    <div class="box_image">
+                                        IMAGE
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -112,10 +161,10 @@
                                 <h6>Get event updates and more in our newsletter</h6>
                             </div>
                             <div class="newsletter_form">
-                                <div>
+                                <div class="sub">
                                     <input type="email" placeholder="Enter e-Mail address" maxlength="40" name="newsletter_email" />
                                 </div>
-                                <div>
+                                <div class="sub">
                                     <input type="submit" value="Sign Up">
                                 </div>
                             </div>
@@ -251,6 +300,6 @@
                 </div>
             </div>
         </div>
-        <script src="/static/js/main.js"></script>
+        <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
     </body>
 </html>
