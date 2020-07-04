@@ -1,0 +1,280 @@
+///////////////////|Variable Declaration
+//|Nav bar
+$nav_bar_width: 250px;
+$nav_background_colour: #12101B;
+$nav_text_color: white;
+$nav_bar_font: 'Open Sans', sans-serif;
+//|Body
+$body_background_color: black;
+$donate_button_background_color: green;
+
+//|Fonts
+$serif_font: 'Noto Serif', serif;
+$sans_serif_font: 'Open Sans', sans-serif;
+$general_text: 'Inter', sans-serif;
+//|Font sizings
+$first: 16px;
+$general: 12px;
+$h1: 40px;
+$fineprint: 11px;
+
+///////////////////|Quick global reset
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+///////////////////|HTML
+html {
+    min-height: 100vh;
+}
+
+///////////////////|Body
+body {
+    font-family: $general_text;
+    margin-left: $nav_bar_width;
+    background-color: $body_background_color;
+    color: white;
+    font-size: $general;
+    max-width:1000px;
+}
+
+///////////////////|Main
+.main {
+    height: 100vh;
+}
+
+///////////////////|Nav bar
+.nav_bar {
+    font-family: $nav_bar_font;
+    font-size: $first;
+    width: $nav_bar_width;
+    height: 100vh;
+    position: fixed;
+    background-color: $nav_background_colour;
+    color: $nav_text_color;
+    top: 0px;
+    left: 0px;
+    padding: 30px 0px 30px 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
+    ////////-----------|Nav bar header
+    .nav_header {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        .nav_logo {
+            width: 180px;
+        }
+    }
+    ////////-----------|Nav bar links
+    .nav_items {
+        margin-top: 20px;
+        margin-left: 35px;
+        padding-inline-start: 0px;
+        li {
+            height: 50px;
+            list-style-type: none;
+            padding: 10px 0 10px 0;
+            text-align: left;
+            a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+            a:link {
+                text-decoration: none;
+                color: white;
+            }
+            a:visited {
+                color: rgb(212, 212, 212);
+            }
+            a:hover {
+                color: rgb(163, 182, 223);
+            }
+            a:active {
+                color: rgb(163, 182, 223);
+                font-weight: bold;
+            }
+        }
+        li:hover {
+            cursor: pointer;
+            transition: 100ms ease-out;
+            transform: scale(1.01);
+        }
+        .nav_donate {
+            background-color: $donate_button_background_color;
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 50px 1fr 10px;
+            .arrow {
+                position: relative;
+                top: 3px;
+                right: 5px;
+                opacity: .75;
+            }
+        }
+    }
+}
+
+///////////////////|Page footer
+.footer {
+    height: 250px;
+    font-family: $sans_serif_font;
+    display: grid;
+    grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
+    grid-template-areas:    "top top top"
+                            "left padd right"
+                            "bottom bottom bottom";
+    padding: 25px 0 0 25px;
+    .top {
+        grid-area: top;
+        margin: 20px 0 20px;
+    }
+    .left {
+        grid-area: left;
+        margin: 20px 0;
+        p {
+            margin: 20px 0;
+        }
+        p:first-child {
+            margin-top: 0px;
+        }
+    }
+    .padd {
+        grid-area: padd;
+    }
+    .right {
+        grid-area: right;
+        .footer_link_list {
+            font-size: $first;
+            padding: 15px 20px;
+            display: grid;
+            grid-template-columns: 50px 1fr 10px;
+            .arrow {
+                position: relative;
+                top: 3px;
+                right: 5px;
+                opacity: .50;
+                font-size: 24px;
+                z-index: 0;
+            }
+        }
+        .donate {
+            background-color: $donate_button_background_color;
+        }
+    }
+    .bottom {
+        grid-area: bottom;
+        text-align: right;
+        background-color: $nav_background_colour;
+        padding: 35px 20px 35px;
+        span {
+            font-size: $fineprint;
+            margin: 0 20px;
+            color: rgb(150, 150, 150);
+        }
+    }
+}
+
+///////////////////|Hamburger button
+.hamburger_button {
+    display: none;
+}
+.hamburger_button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+        transition: 0.3s ease;
+    }
+}
+.hamburger_button:hover {
+    cursor: pointer;
+}
+
+///////////////////|Burger transforms on toggle
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+///////////////////|Commons
+h1 {
+    font-size: $h1;
+}
+
+
+///////////////////|Media queries below 760px
+@media only screen and (max-width: 760px) {
+    body {
+        margin-left: 0;
+    }
+    ////////-----------|Make hamburger button visible
+    .hamburger_button {
+        display: block;
+    }
+    ////////-----------|Nav bar
+    //|set sliding animation speed here
+    .nav_bar {
+        width: 100vw;
+        transition: transform 400ms ease-out;
+        transform: translateX(-1000px);
+        z-index: 5;
+    }
+    ////////-----------|Nav bar toggle
+    //|Nav bar open toggle value for javascript
+    .nav_bar.open {
+        transform: translateX(0);
+    }
+    ////////-----------|Nav bar items
+    //|if enabling animation set opacity to 0
+    .nav_items li {
+        text-align: center;
+        opacity: 1;
+    }
+    @keyframes nav_items_fade {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    ////////-----------|Footer
+    .footer{
+        margin: 0;
+        padding: 20px;
+        padding-right: 0px;
+        grid-template-columns: 1fr;
+        grid-template-areas:    "top" "left" "right" "bottom";    
+        .top {
+            h1 { font-size: 32px; }
+            margin: 20px 0 0;
+        }
+        .left { padding-right: 40px; }
+        .bottom {
+            padding: 10px;
+            margin: 0;
+            span {
+                display: block;
+                padding: 5px 10px 10px 0px;
+                margin: 0;
+            }
+        }
+    }
+}
