@@ -4,19 +4,40 @@ $nav_bar_width: 250px;
 $nav_background_colour: #12101B;
 $nav_text_color: white;
 $nav_bar_font: 'Open Sans', sans-serif;
+
 //|Body
-$body_background_color: black;
+$body_background_color: #F1F1F1;
 $donate_button_background_color: green;
 
+//|Colors
+$color_primary: #DE294A;
+$color_secondary: #280F98;
+$color_black1: #12101B;
+$color_black2: #1D1B26;
+$color_black3: #282730;
+$color_gray5: #f1f1f1;
+$color_white: #ffffff;
+
+$wrapper_background: #1D1B26;
+
 //|Fonts
-$serif_font: 'Noto Serif', serif;
+$serif_font: 'PT-Serif', serif;
 $sans_serif_font: 'Open Sans', sans-serif;
-$general_text: 'Inter', sans-serif;
+
 //|Font sizings
-$first: 16px;
-$general: 12px;
-$h1: 40px;
-$fineprint: 11px;
+$h1: 56px;
+$h2: 48px;
+$h3: 40px;
+$h4: 32px;
+$h5: 24px;
+$h6: 20px;
+$weight_extra_bold: 800;
+$weight_bold: 600;
+$weight_normal: 400;
+$large_text: 20px;
+$medium_text: 18px;
+$normal_text: 16px;
+$small_text: 14px;
 
 ///////////////////|Quick global reset
 * {
@@ -32,12 +53,17 @@ html {
 
 ///////////////////|Body
 body {
-    font-family: $general_text;
+    font-size: $normal_text;
+    font-family: $sans_serif_font;
     margin-left: $nav_bar_width;
     background-color: $body_background_color;
     color: white;
-    font-size: $general;
-    max-width:1000px;
+    max-width:1040px;
+}
+
+///////////////////|Wrapper
+.wrapper {
+    background-color: $wrapper_background;
 }
 
 ///////////////////|Main
@@ -45,10 +71,201 @@ body {
     height: 100vh;
 }
 
+///////////////////|Main - Upcoming events
+.index_events {
+    background-color: $color_gray5;
+}
+
+///////////////////|Content - commons
+.content {
+    .content_head {
+        display: grid;
+        grid-template-columns: minmax(300px, 1fr) 1fr 270px;
+        margin: 0px 0px 20px;
+        color: $color_black2;
+    }
+    .button_with_arrow {
+        font-size: $large_text;
+        padding: 15px 20px;
+        display: grid;
+        grid-template-columns: 200px 1fr 15px;
+        .arrow {
+            position: relative;
+            top: 3px;
+            right: 5px;
+            opacity: .50;
+            font-size: 24px;
+            z-index: 0;
+        }
+    }
+}
+
+///////////////////|Content - Upcoming events
+.index_events {
+    color: $color_black2;
+    .events_box {
+        .featured_event {
+            position: relative;
+            margin: 40px 0 0;
+            background-color: $color_black2;
+            color: $color_white;
+            .featured_main {
+                display: grid;
+                grid-template-columns: 4px 1fr 270px;
+                grid-template-areas: "stick content image"; 
+                .stick {
+                    grid-area: stick;
+                    background-color: $color_secondary;
+                }
+                .featured_content {
+                    grid-area: content;
+                    padding: 40px;
+                    grid-template-columns: 1fr 250px;
+                    .featured_title {
+                        grid-area: title;
+                        margin: 0 0 20px;
+                        .featured_dates {
+                            color: $color_white;
+                            background-color: $color_secondary;
+                            position: absolute;
+                            top: -20px;
+                            left: 0;
+                            padding: 10px 15px;
+                        }
+                    }
+                    .featured_text {
+                        grid-area: text;
+                        p {
+                            margin: 10px 0;
+                        }
+                        .emphasise {
+                            font-weight: $weight_bold;
+                        }
+                    }
+                }
+                .featured_image {
+                    grid-area: image;
+                    background-color: $color_black3;
+                }
+            }
+        }
+        .event {
+            position: relative;
+            margin: 60px 0 0;
+            background-color: $color_white;
+
+            .event_main {
+                display: grid;
+                grid-template-columns: 4px 1fr 270px;
+                grid-template-areas: "stick content image"; 
+                .stick {
+                    grid-area: stick;
+                    background-color: $color_secondary;
+                }
+                .box_content {
+                    grid-area: content;
+                    padding: 40px;
+                    grid-template-columns: 1fr 250px;
+                    .box_title      {
+                        grid-area: title;
+                        .box_dates {
+                            color: $color_white;
+                            background-color: $color_secondary;
+                            position: absolute;
+                            top: -20px;
+                            left: 0;
+                            padding: 10px 15px;
+                        }
+                    }
+                    .box_text       {   grid-area: text }
+                }
+                .box_image {
+                    grid-area: image;
+                    background-color: $color_black2;
+                }
+            }
+        }
+    }
+}
+
+
+///////////////////|Content - newsletter signup
+.index_newsletter {
+    height: 200px;
+    display: grid;
+    justify-content: center;
+    .newletter_head {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .newsletter_form {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        input[type=email], input[type=submit] {
+            height: 60px;
+            font-family: $sans_serif_font;
+            font-size: $normal_text;
+            font-weight: $weight_bold;
+            border: 0;
+            width: 95%;
+        }
+        input[type=email] {
+            margin-right: 20px;
+            padding: 0 20px;
+        }
+        input[type=submit] {
+            background-color: $color_primary;
+            color: white;
+            cursor: pointer;
+            transition: 100ms ease-out;
+        }
+        input[type=submit]:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+///////////////////|Content - Performances
+.index_performances {
+    background-color: $color_gray5;
+    color: $color_black1;
+    padding-left: 40px;
+    padding: 40px 0 40px 40px;
+}
+
+.performances_events {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 40px;
+    .events_box {
+        display: grid;
+        grid-template-areas:    "image"
+                                "title"
+                                "text";
+        .events_image {
+            grid-area: image;
+            width: 100%;
+            height: 160px;
+            background-color: $color_black2;
+        }
+        .events_title {
+            grid-area: title;
+            p {
+                font-size: $large_text;
+                font-weight: $weight_bold;
+            }
+        }
+        .events_text {
+            grid-area:  text;
+        }
+    }
+}
+
 ///////////////////|Nav bar
 .nav_bar {
     font-family: $nav_bar_font;
-    font-size: $first;
+    font-size: $large_text;
     width: $nav_bar_width;
     height: 100vh;
     position: fixed;
@@ -104,38 +321,28 @@ body {
             transition: 100ms ease-out;
             transform: scale(1.01);
         }
-        .nav_donate {
-            background-color: $donate_button_background_color;
-            padding: 15px 20px;
-            display: grid;
-            grid-template-columns: 50px 1fr 10px;
-            .arrow {
-                position: relative;
-                top: 3px;
-                right: 5px;
-                opacity: .75;
-            }
+        .button_with_arrow {
+            grid-template-columns: 150px 1fr 15px;
         }
     }
 }
 
 ///////////////////|Page footer
 .footer {
-    height: 250px;
     font-family: $sans_serif_font;
+    background-color: $color_black2;
+    padding: 25px 0 0;
     display: grid;
     grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
     grid-template-areas:    "top top top"
                             "left padd right"
                             "bottom bottom bottom";
-    padding: 25px 0 0 25px;
     .top {
         grid-area: top;
         margin: 20px 0 20px;
     }
     .left {
         grid-area: left;
-        margin: 20px 0;
         p {
             margin: 20px 0;
         }
@@ -148,23 +355,6 @@ body {
     }
     .right {
         grid-area: right;
-        .footer_link_list {
-            font-size: $first;
-            padding: 15px 20px;
-            display: grid;
-            grid-template-columns: 50px 1fr 10px;
-            .arrow {
-                position: relative;
-                top: 3px;
-                right: 5px;
-                opacity: .50;
-                font-size: 24px;
-                z-index: 0;
-            }
-        }
-        .donate {
-            background-color: $donate_button_background_color;
-        }
     }
     .bottom {
         grid-area: bottom;
@@ -172,9 +362,10 @@ body {
         background-color: $nav_background_colour;
         padding: 35px 20px 35px;
         span {
-            font-size: $fineprint;
+            font-size: $small_text;
             margin: 0 20px;
             color: rgb(150, 150, 150);
+            display: inline-block;
         }
     }
 }
@@ -212,13 +403,44 @@ body {
 }
 
 ///////////////////|Commons
-h1 {
-    font-size: $h1;
+h1 {    font-size: $h1; font-weight: 400; }
+h2 {    font-size: $h2; font-weight: 400; }
+h3 {    font-size: $h3; font-weight: 400; }
+h4 {    font-size: $h4; font-weight: 400; }
+h5 {    font-size: $h5; font-weight: 400; }
+h6 {    font-size: $h6; font-weight: 400; }
+
+.button_with_arrow {
+    font-size: $large_text;
+    padding: 15px 20px;
+    display: grid;
+    grid-template-columns: 250px 1fr 15px;
+    .arrow {
+        position: relative;
+        top: 3px;
+        right: 5px;
+        opacity: .50;
+        font-size: 24px;
+        z-index: 0;
+    }
 }
 
+.background_color_red {
+    font-weight: 600;
+    background-color: $donate_button_background_color;
+}
 
-///////////////////|Media queries below 760px
-@media only screen and (max-width: 760px) {
+.section_margins {
+    padding: 40px 40px 40px 40px;
+}
+
+.section_margins:last-child {
+    padding: 40px 0px 0px 40px;
+}
+
+/////////////////////////////////////////////////////////
+///////////////////|MEDIA QUERIES BELOW 760px
+@media only screen and (max-width: 800px) {
     body {
         margin-left: 0;
     }
@@ -255,6 +477,82 @@ h1 {
             transform: translateX(0px);
         }
     }
+
+    ////////-----------|Events
+    .index_events {
+        .content_head {
+            margin: 0 0 10px;
+            .button_with_arrow {
+                display: none;
+            }
+        }
+        .events_box {
+            padding: 20px 0;
+            .featured_event {
+                position: relative;
+                margin: 20px 0 0;
+                background-color: $color_black2;
+                color: $color_white;
+                .featured_main {
+                    display: grid;
+                    grid-template-columns: 4px 1fr;
+                    grid-template-areas:    "stick image"
+                                            "stick content";
+                    .featured_image {
+                        height: 200px;
+                    }
+                }
+            }
+            .event {
+                .event_main {
+                    display: grid;
+                    grid-template-columns: 4px 1fr;
+                    grid-template-areas:    "stick image"
+                                            "stick content";
+                    .box_content {
+                        grid-area: content;
+                        padding: 20px;
+                    }
+                    .box_image {
+                        grid-area: image;
+                        background-color: $color_black2;
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
+
+    ////////-----------|Newsletter
+    
+
+    ////////-----------|Performances
+    .index_performances {
+        .content_head {
+            .button_with_arrow {
+                display: none;
+            }
+        }
+    }
+    .performances_events {
+        display: grid;
+        grid-template-columns: 1fr;
+        .events_box {
+            display: grid;
+            grid-template-areas:    "image title"
+                                    "image text";
+            .events_image {
+                height: 100px;
+            }
+            .events_title {
+                margin-left: 20px;
+            }
+            .events_text {
+                margin-left: 20px;
+            }
+        }
+    }
+
     ////////-----------|Footer
     .footer{
         margin: 0;
@@ -264,7 +562,7 @@ h1 {
         grid-template-areas:    "top" "left" "right" "bottom";    
         .top {
             h1 { font-size: 32px; }
-            margin: 20px 0 0;
+            margin: 0 0 20px 0;
         }
         .left { padding-right: 40px; }
         .bottom {
@@ -276,5 +574,13 @@ h1 {
                 margin: 0;
             }
         }
+    }
+
+    ////////-----------|Section margins
+    .section_margins {
+        padding: 20px 20px 20px 20px;
+    }
+    .section_margins:last-child {
+        padding: 20px 0px 0px 20px;
     }
 }
