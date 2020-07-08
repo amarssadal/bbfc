@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/common.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Noto+Serif&family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+        <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+        <title>BBCF - {% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="hamburger_button">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <nav class="nav_bar">
+                <div class="nav_header">
+                    <img class="nav_logo" src="{{ url_for('static', filename='images/logo.png') }}">
+                </div>
+                <ul class="nav_items">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/templates/our_work.html">Our Work</a></li>
+                    <li><a href="/templates/performances.html">Performances</a></li>
+                    <li><a href="/templates/performers.html">Performers</a></li>
+                    <li><a href="/templates/shop.html">Shop</a></li>
+                    <li><a href="/templates/get_involved.html">Get Involved</a></li>
+                    <li>
+                        <div class="button_with_arrow background_color_red">
+                            <div>Donate</div>
+                            <div></div>
+                            <div><ion-icon class="arrow" name="chevron-forward-circle"></ion-icon></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='/js/main.js') }}"></script>
+    </body>
+</html>

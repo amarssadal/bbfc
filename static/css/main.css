@@ -22,10 +22,6 @@ body {
   background-color: #1D1B26;
 }
 
-.main {
-  height: 100vh;
-}
-
 .content .content_head {
   display: -ms-grid;
   display: grid;
@@ -88,6 +84,13 @@ body {
       grid-template-areas: "first first first first second second second" "third third third fourth fourth fourth fourth";
 }
 
+.index_main .donate {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #EB5757;
+}
+
 .index_main .first {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
@@ -101,9 +104,45 @@ body {
   -ms-grid-column: 5;
   -ms-grid-column-span: 3;
   grid-area: second;
-  z-index: 2;
-  width: 200px;
-  background-color: #282730;
+  position: relative;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -ms-grid-rows: 1fr 2fr;
+      grid-template-rows: 1fr 2fr;
+      grid-template-areas: "one two" "image three";
+}
+
+.index_main .second .pad1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.index_main .second .imagebox {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: image;
+}
+
+.index_main .second .imagebox img {
+  width: 100%;
+}
+
+.index_main .second .pad2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: two;
+}
+
+.index_main .second .pad3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: three;
 }
 
 .index_main .third {
@@ -111,13 +150,42 @@ body {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: third;
-  z-index: 20;
-  width: 200px;
-  background-color: #282730;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
-  z-index: 2;
+  -ms-grid-column-align: right;
+      justify-self: right;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas: "one image" "two three";
+}
+
+.index_main .third .pad1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+.index_main .third .imagebox {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: image;
+}
+
+.index_main .third .imagebox img {
+  width: 100%;
+}
+
+.index_main .third .pad2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: two;
+}
+
+.index_main .third .pad3 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: three;
 }
 
 .index_main .fourth {
@@ -127,25 +195,30 @@ body {
   grid-area: fourth;
   background-color: #12101B;
   height: 250px;
+  background-image: url("/images/image_video.png");
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-.index_main .bgbox1, .index_main .bgbox2 {
-  background-color: #12101B;
+.index_main .fourth .blue_transparency_bar {
+  width: 20%;
   position: absolute;
-  z-index: 1;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.index_main .bgbox1 {
-  width: 220px;
-  height: 300px;
-  right: 80px;
-  top: 100px;
+.index_main .fourth .button_with_arrow {
+  width: 250px;
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.index_main .bgbox2 {
-  width: 200px;
-  height: 150px;
-  left: 250px;
+.index_main .fourth .button_with_arrow .arrow {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .index_main h4 {
@@ -159,10 +232,28 @@ body {
 
 .index_events {
   background-color: #f1f1f1;
+  color: #1D1B26;
 }
 
-.index_events {
-  color: #1D1B26;
+.index_events .events_announcements {
+  color: #ffffff;
+  background-color: #280F98;
+  padding: 40px 40px 80px 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.index_events .events_announcements p {
+  font-size: 18px;
+}
+
+.index_events .events_announcements .button_with_arrow {
+  background-color: #1D0B6C;
+  margin: 20px 0 0 20px;
+  width: 250px;
+  position: absolute;
+  right: 00px;
+  bottom: 0px;
 }
 
 .index_events .events_box .featured_event {
@@ -405,6 +496,7 @@ body {
       grid-template-columns: 1fr;
   -ms-grid-rows: 200px 1fr;
       grid-template-rows: 200px 1fr;
+  z-index: 1000;
 }
 
 .nav_bar .nav_header {
@@ -618,7 +710,7 @@ h6 {
 
 .background_color_red {
   font-weight: 600;
-  background-color: green;
+  background-color: #DE294A;
 }
 
 .section_margins {
@@ -677,6 +769,17 @@ h6 {
       -webkit-transform: translateX(0px);
               transform: translateX(0px);
     }
+  }
+  .index_main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "first" "fourth";
+  }
+  .index_main .second {
+    display: none;
+  }
+  .index_main .third {
+    display: none;
   }
   .index_events .content_head {
     margin: 0 0 10px;

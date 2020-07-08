@@ -7,11 +7,16 @@ $nav_bar_font: 'Open Sans', sans-serif;
 
 //|Body
 $body_background_color: #F1F1F1;
-$donate_button_background_color: green;
+$donate_button_background_color: #DE294A;
 
 //|Colors
 $color_primary: #DE294A;
 $color_secondary: #280F98;
+$color_secondary_dark: #1D0B6C;
+$color_info: #2F80ED;
+$color_success: #27AE60;
+$color_warning: #E2B93B;
+$color_error: #EB5757;
 $color_black1: #12101B;
 $color_black2: #1D1B26;
 $color_black3: #282730;
@@ -67,9 +72,7 @@ body {
 }
 
 ///////////////////|Main
-.main {
-    height: 100vh;
-}
+
 
 ///////////////////|Content - commons
 .content {
@@ -119,45 +122,81 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:    "first first first first second second second"
                             "third third third fourth fourth fourth fourth";
+    .donate{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: $color_error;
+    }
     .first {
         grid-area: first;
         background-color: $color_black1;
     }
     .second {
         grid-area: second;
-        z-index: 2;
-        width: 200px;
-        background-color: $color_black3;
-
+        position: relative;
+        justify-self: left;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 2fr;
+        grid-template-areas:    "one two"
+                                "image three";
+        .pad1 { grid-area: one; }
+        .imagebox {
+            grid-area: image;
+            // background-color: $color_black3;
+            img {
+                width: 100%;
+            }
+        }
+        .pad2 { grid-area: two; }
+        .pad3 { grid-area: three; }
     }
     .third {
         grid-area: third;
-        z-index: 20;
-        width: 200px;
-        background-color: $color_black3;
-        justify-content: right;
-        z-index: 2;
+        justify-self: right;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:    "one image"
+                                "two three";
+        .pad1 { grid-area: one; }
+        .imagebox {
+            grid-area: image;
+            // background-color: $color_black3;
+            img {
+                width: 100%;
+            }
+        }
+        .pad2 { grid-area: two; }
+        .pad3 { grid-area: three; }
     }
     .fourth {
         grid-area: fourth;
         background-color: $color_black1;
         height: 250px;
-    }
-    .bgbox1, .bgbox2 {
-        background-color: $color_black1;
-        position: absolute;
-        z-index: 1;
-    }
-    .bgbox1 {
-        width: 220px;
-        height: 300px;
-        right: 80px;
-        top: 100px;
-    }
-    .bgbox2 {
-        width: 200px;
-        height: 150px;
-        left: 250px;
+        background-image: url('/images/image_video.png');
+        background-repeat: no-repeat;
+        position: relative;
+        .blue_transparency_bar {
+            width: 20%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            background-color: rgba($color: black, $alpha: .5);
+        }
+        .button_with_arrow {
+            width: 250px;
+            position: absolute;
+            bottom: 0px;
+            right: 50px;
+            background-color: rgba($color: black, $alpha: .5);
+            .arrow {
+                background-color: rgba($color: black, $alpha: .5);
+            }
+        }
     }
     h4 {
         font-family: $serif_font;
@@ -169,15 +208,31 @@ body {
 }
     
 
+///////////////////|Content - Announcement
+
+
 ///////////////////|Content - Upcoming events
 .index_events {
     background-color: $color_gray5;
-}
-
-
-///////////////////|Content - Upcoming events
-.index_events {
     color: $color_black2;
+    .events_announcements {
+        color: $color_white;
+        background-color: $color_secondary;
+        padding: 40px 40px 80px 40px;
+        margin-bottom: 40px;
+        position: relative;
+        p {
+            font-size: $medium_text;
+        }
+        .button_with_arrow {
+            background-color: $color_secondary_dark;
+            margin: 20px 0 0 20px;
+            width: 250px;
+            position: absolute;
+            right: 00px;
+            bottom: 0px;
+        }
+    }
     .events_box {
         .featured_event {
             position: relative;
@@ -353,6 +408,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 200px 1fr;
+    z-index: 1000;
     ////////-----------|Nav bar header
     .nav_header {
         text-align: center;
@@ -553,6 +609,19 @@ h6 {    font-size: $h6; font-weight: 400; }
             transform: translateX(0px);
         }
     }
+
+    ////////-----------|Index Main
+    .index_main {
+        grid-template-columns: 1fr;
+        grid-template-areas: "first" "fourth";
+        .second {
+            display: none;
+        }
+        .third {
+            display: none;
+        }
+    }
+
 
     ////////-----------|Events
     .index_events {
