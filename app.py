@@ -12,8 +12,12 @@ def create_app():
     @app.route('/')
     def index():
         return render_template('index.html')
-    return app
 
+    @app.route('/our_work')
+    def our_work():
+        return render_template('our_work.html')
+    
+    return app
 
 if __name__ == "__main__":
     flask_app = create_app()

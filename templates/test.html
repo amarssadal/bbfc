@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/test.css') }}">
+    <script src="https://kit.fontawesome.com/f89c75821f.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="item" id="profile">
+                <a href="#profile" class="btn"><i class="fas fa-user"></i>Profile</a>
+                <div class="sub-menu">
+                    <a href="#">Post</a>
+                    <a href="#">Picture</a>
+                </div>
+            </div>
+            <div class="item" id="message">
+                <a href="#message" class="btn"><i class="fas fa-envelope"></i>Message</a>
+                <div class="sub-menu">
+                    <a href="#">New</a>
+                    <a href="#">Inbox</a>
+                    <a href="#">Sent</a>
+                </div>
+            </div>
+            <div class="item" id="setting">
+                <a href="#setting" class="btn"><i class="fas fa-cog"></i>Settings</a>
+                <div class="sub-menu">
+                    <a href="#">Post</a>
+                    <a href="#">Picture</a>
+                </div>
+            </div>
+            <div class="item" id="logout">
+                <a href="#logout" class="btn"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                <div class="sub-menu">
+                    <a href="#">Post</a>
+                    <a href="#">Picture</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

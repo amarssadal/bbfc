@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='/css/common.css') }}">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='/css/main.css') }}"> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='/css/menu.css') }}">
+        {% block css %}{% endblock %}
         <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Noto+Serif&family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
         <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
@@ -21,21 +22,49 @@
                 <div class="nav_header">
                     <img class="nav_logo" src="{{ url_for('static', filename='images/logo.png') }}">
                 </div>
-                <ul class="nav_items">
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/templates/our_work.html">Our Work</a></li>
-                    <li><a href="/templates/performances.html">Performances</a></li>
-                    <li><a href="/templates/performers.html">Performers</a></li>
-                    <li><a href="/templates/shop.html">Shop</a></li>
-                    <li><a href="/templates/get_involved.html">Get Involved</a></li>
-                    <li>
-                        <div class="button_with_arrow background_color_red">
-                            <div>Donate</div>
-                            <div></div>
-                            <div><ion-icon class="arrow" name="chevron-forward-circle"></ion-icon></div>
+                <div class="menu">
+                    <div class="item" id="home">
+                        <a href="#home" class="button">Home</a>
+                    </div>
+                    <div class="item" id="our_work">
+                        <a href="#our_work" class="button">Our Work</a>
+                        <div class="sub_menu">
+                            <a href="#">Our mission</a>
+                            <a href="#">Initiatives</a>
+                            <a href="#">Outcomes</a>
+                            <a href="#">Patrons</a>
+                            <a href="#">Sponsors</a>
+                            <a href="#">Testimonials</a>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                    <div class="item" id="performances">
+                        <a href="#performances" class="button">Performers</a>
+                        <div class="sub_menu">
+                            <a href="#">Performers 1</a>
+                            <a href="#">Performers 2</a>
+                            <a href="#">Performers 3</a>
+
+                        </div>
+                    </div>
+                    <div class="item" id="concerts">
+                        <a href="#concerts" class="button">Concerts</a>
+                        <div class="sub_menu">
+                            <a href="#">Concerts 1</a>
+                            <a href="#">Concerts 2</a>
+                            <a href="#">Concerts 3</a>
+
+                        </div>
+                    </div>
+                    <div class="item" id="shop">
+                        <a href="#shop" class="button">Shop</a>
+                        <div class="sub_menu">
+                            <a href="#">Shop 1</a>
+                            <a href="#">Shop 2</a>
+                            <a href="#">Shop 3</a>
+
+                        </div>
+                    </div>
+                </div>
             </nav>
             <div class="main">
                 {% block content %}

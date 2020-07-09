@@ -1,81 +1,7 @@
-///////////////////|Variable Declaration
-//|Nav bar
-$nav_bar_width: 250px;
-$nav_background_colour: #12101B;
-$nav_text_color: white;
-$nav_bar_font: 'Open Sans', sans-serif;
+@import 'variables';
 
-//|Body
-$body_background_color: #F1F1F1;
-$donate_button_background_color: #DE294A;
-
-//|Colors
-$color_primary: #DE294A;
-$color_secondary: #280F98;
-$color_secondary_dark: #1D0B6C;
-$color_info: #2F80ED;
-$color_success: #27AE60;
-$color_warning: #E2B93B;
-$color_error: #EB5757;
-$color_black1: #12101B;
-$color_black2: #1D1B26;
-$color_black3: #282730;
-$color_gray5: #f1f1f1;
-$color_white: #ffffff;
-
-$wrapper_background: #1D1B26;
-
-//|Fonts
-$serif_font: 'PT-Serif', serif;
-$sans_serif_font: 'Open Sans', sans-serif;
-
-//|Font sizings
-$h1: 56px;
-$h2: 48px;
-$h3: 40px;
-$h4: 32px;
-$h5: 24px;
-$h6: 20px;
-$weight_extra_bold: 800;
-$weight_bold: 600;
-$weight_normal: 400;
-$large_text: 20px;
-$medium_text: 18px;
-$normal_text: 16px;
-$small_text: 14px;
-
-///////////////////|Quick global reset
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-///////////////////|HTML
-html {
-    min-height: 100vh;
-}
-
-///////////////////|Body
-body {
-    font-size: $normal_text;
-    font-family: $sans_serif_font;
-    margin-left: $nav_bar_width;
-    background-color: $body_background_color;
-    color: white;
-    max-width:1040px;
-}
-
-///////////////////|Wrapper
-.wrapper {
-    background-color: $wrapper_background;
-}
-
-///////////////////|Main
-
-
-///////////////////|Content - commons
-.content {
+///////////////////|index - commons
+.index {
     .content_head {
         display: grid;
         grid-template-columns: minmax(300px, 1fr) 1fr 270px;
@@ -98,23 +24,9 @@ body {
     }
 }
 
-.stick_box {
-    display: grid;
-    grid-template-columns: 4px 1fr;
-    grid-template-areas: "stick main";
-    .stick {
-        grid-area: stick;
-        background-color: $color_secondary;
-    }
-    .content {
-        grid-area: main;
-        margin-left: 20px;
-        padding: 20px;
-    }
-}
-
 ///////////////////|Content - Main
 .index_main {
+    background-color: $color_black2;
     position: relative;
     display: grid;
     column-gap: 20px;
@@ -131,6 +43,11 @@ body {
     .first {
         grid-area: first;
         background-color: $color_black1;
+        position: relative;
+        padding: 40px;
+        .logo_mobile {
+            display: none;
+        }
     }
     .second {
         grid-area: second;
@@ -145,7 +62,6 @@ body {
         .pad1 { grid-area: one; }
         .imagebox {
             grid-area: image;
-            // background-color: $color_black3;
             img {
                 width: 100%;
             }
@@ -164,7 +80,6 @@ body {
         .pad1 { grid-area: one; }
         .imagebox {
             grid-area: image;
-            // background-color: $color_black3;
             img {
                 width: 100%;
             }
@@ -178,24 +93,23 @@ body {
         height: 250px;
         background-image: url('/images/image_video.png');
         background-repeat: no-repeat;
+        background-position: center top;
+        background-size: 100%;
         position: relative;
-        .blue_transparency_bar {
-            width: 20%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 100;
-            background-color: rgba($color: black, $alpha: .5);
-        }
         .button_with_arrow {
             width: 250px;
             position: absolute;
             bottom: 0px;
-            right: 50px;
+            right: 0px;
             background-color: rgba($color: black, $alpha: .5);
-            .arrow {
-                background-color: rgba($color: black, $alpha: .5);
-            }
+        }
+        .film_box_bar::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 40px;
+            height: 100%;
+            background: rgba($color: $color_secondary, $alpha: .25);
         }
     }
     h4 {
@@ -206,14 +120,11 @@ body {
         margin: 20px 0;
     }
 }
-    
-
-///////////////////|Content - Announcement
 
 
 ///////////////////|Content - Upcoming events
 .index_events {
-    background-color: $color_gray5;
+    background-color: $color_white;
     color: $color_black2;
     .events_announcements {
         color: $color_white;
@@ -282,7 +193,7 @@ body {
         .event {
             position: relative;
             margin: 60px 0 0;
-            background-color: $color_white;
+            background-color: $color_grey5;
 
             .event_main {
                 display: grid;
@@ -358,7 +269,7 @@ body {
 
 ///////////////////|Content - Performances
 .index_performances {
-    background-color: $color_gray5;
+    background-color: $color_white;
     color: $color_black1;
     padding-left: 40px;
     padding: 40px 0 40px 40px;
@@ -389,72 +300,6 @@ body {
         }
         .events_text {
             grid-area:  text;
-        }
-    }
-}
-
-///////////////////|Nav bar
-.nav_bar {
-    font-family: $nav_bar_font;
-    font-size: $large_text;
-    width: $nav_bar_width;
-    height: 100vh;
-    position: fixed;
-    background-color: $nav_background_colour;
-    color: $nav_text_color;
-    top: 0px;
-    left: 0px;
-    padding: 30px 0px 30px 0px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
-    z-index: 1000;
-    ////////-----------|Nav bar header
-    .nav_header {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        .nav_logo {
-            width: 180px;
-        }
-    }
-    ////////-----------|Nav bar links
-    .nav_items {
-        margin-top: 20px;
-        margin-left: 35px;
-        padding-inline-start: 0px;
-        li {
-            height: 50px;
-            list-style-type: none;
-            padding: 10px 0 10px 0;
-            text-align: left;
-            a {
-                display: inline-block;
-                width: 100%;
-                height: 100%;
-            }
-            a:link {
-                text-decoration: none;
-                color: white;
-            }
-            a:visited {
-                color: rgb(212, 212, 212);
-            }
-            a:hover {
-                color: rgb(163, 182, 223);
-            }
-            a:active {
-                color: rgb(163, 182, 223);
-                font-weight: bold;
-            }
-        }
-        li:hover {
-            cursor: pointer;
-            transition: 100ms ease-out;
-            transform: scale(1.01);
-        }
-        .button_with_arrow {
-            grid-template-columns: 150px 1fr 15px;
         }
     }
 }
@@ -502,73 +347,7 @@ body {
     }
 }
 
-///////////////////|Hamburger button
-.hamburger_button {
-    display: none;
-}
-.hamburger_button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-    div {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        margin: 5px;
-        transition: 0.3s ease;
-    }
-}
-.hamburger_button:hover {
-    cursor: pointer;
-}
 
-///////////////////|Burger transforms on toggle
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-    opacity: 0;
-}
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-///////////////////|Commons
-h1 {    font-size: $h1; font-weight: 400; }
-h2 {    font-size: $h2; font-weight: 400; }
-h3 {    font-size: $h3; font-weight: 400; }
-h4 {    font-size: $h4; font-weight: 400; }
-h5 {    font-size: $h5; font-weight: 400; }
-h6 {    font-size: $h6; font-weight: 400; }
-
-.button_with_arrow {
-    font-size: $large_text;
-    padding: 15px 20px;
-    display: grid;
-    grid-template-columns: 250px 1fr 15px;
-    .arrow {
-        position: relative;
-        top: 3px;
-        right: 5px;
-        opacity: .50;
-        font-size: 24px;
-        z-index: 0;
-    }
-}
-
-.background_color_red {
-    font-weight: 600;
-    background-color: $donate_button_background_color;
-}
-
-.section_margins {
-    padding: 40px 40px 40px 40px;
-}
-
-.section_margins:last-child {
-    padding: 40px 0px 0px 40px;
-}
 
 /////////////////////////////////////////////////////////
 ///////////////////|MEDIA QUERIES BELOW 760px
@@ -576,42 +355,17 @@ h6 {    font-size: $h6; font-weight: 400; }
     body {
         margin-left: 0;
     }
-    ////////-----------|Make hamburger button visible
-    .hamburger_button {
-        display: block;
-    }
-    ////////-----------|Nav bar
-    //|set sliding animation speed here
-    .nav_bar {
-        width: 100vw;
-        transition: transform 400ms ease-out;
-        transform: translateX(-1000px);
-        z-index: 5;
-    }
-    ////////-----------|Nav bar toggle
-    //|Nav bar open toggle value for javascript
-    .nav_bar.open {
-        transform: translateX(0);
-    }
-    ////////-----------|Nav bar items
-    //|if enabling animation set opacity to 0
-    .nav_items li {
-        text-align: center;
-        opacity: 1;
-    }
-    @keyframes nav_items_fade {
-        from {
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0px);
-        }
-    }
 
     ////////-----------|Index Main
     .index_main {
+        .first .logo_mobile {
+            display: block;
+            margin: 0px 0 40px;
+            img {
+                width: 25%;
+                min-width: 100px;
+            }
+        }
         grid-template-columns: 1fr;
         grid-template-areas: "first" "fourth";
         .second {
@@ -621,7 +375,6 @@ h6 {    font-size: $h6; font-weight: 400; }
             display: none;
         }
     }
-
 
     ////////-----------|Events
     .index_events {
@@ -681,29 +434,29 @@ h6 {    font-size: $h6; font-weight: 400; }
         }
     }
         
-        ////////-----------|Performances
+    ////////-----------|Performances
     .index_performances {
         .content_head {
             .button_with_arrow {
                 display: none;
             }
         }
-    }
-    .performances_events {
-        display: grid;
-        grid-template-columns: 1fr;
-        .events_box {
+        .performances_events {
             display: grid;
-            grid-template-areas:    "image title"
-                                    "image text";
-            .events_image {
-                height: 100px;
-            }
-            .events_title {
-                margin-left: 20px;
-            }
-            .events_text {
-                margin-left: 20px;
+            grid-template-columns: 1fr;
+            .events_box {
+                display: grid;
+                grid-template-areas:    "image title"
+                "image text";
+                .events_image {
+                    height: 100px;
+                }
+                .events_title {
+                    margin-left: 20px;
+                }
+                .events_text {
+                    margin-left: 20px;
+                }
             }
         }
     }
@@ -731,11 +484,4 @@ h6 {    font-size: $h6; font-weight: 400; }
         }
     }
 
-    ////////-----------|Section margins
-    .section_margins {
-        padding: 20px 20px 20px 20px;
-    }
-    .section_margins:last-child {
-        padding: 20px 0px 0px 20px;
-    }
 }

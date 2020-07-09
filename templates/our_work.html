@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/content.css') }}">
+{% endblock %}
+
+{% block title %}
+    Our Work
+{% endblock %}
+
+{% block content %}
+    <div class="our_work">
+        <div class="page_heading section_margins">
+            <div>asa</div>
+            <div class="stick_box">
+                <h3>Our work</h3>
+                <div class="subtext">
+                    Black British Classical Foundation exists for the purpose of nurturing an interest and participation in classical arts, in particular, Opera, amongst communities of colour in the UK and beyond.
+                </div>
+                <div class="contact_box">
+                    <div class="head">
+                        <h6>Get in touch</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

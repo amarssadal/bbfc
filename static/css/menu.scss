@@ -1,0 +1,120 @@
+@import 'variables';
+
+///////////////////|Nav bar
+.wrapper {
+    .nav_bar {
+        font-family: "Open Sans", sans-serif;
+        font-size: 20px;
+        width: $nav_bar_width;
+        height: 100vh;
+        position: fixed;
+        background-color: #12101B;
+        color: white;
+        top: 0px;
+        left: 0px;
+        padding: 30px 0px 30px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 1fr;
+        z-index: 1000;
+        .nav_header {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            .nav_logo {
+                width: 180px;
+            }
+        }
+        .menu {
+            color: $color_white;
+            margin: 20px;
+            overflow: hidden;
+            .item {
+                display: block;
+                margin: 20px;
+                position: relative;
+                a {
+                    color: $color_white;
+                }
+                .sub_menu {
+                    overflow: hidden;
+                    transition: 0.3s;
+                    max-height: 0;
+                    a::before {
+                        content: '';
+                        width: 2px;
+                        background: $color_secondary;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                    }
+                    a {
+                        display: block;
+                        color: white;
+                        font-size: $normal_text;
+                        padding: 10px 5px 10px 10px;
+                        position: relative;
+                    }
+                }
+            }
+            .item:target .sub_menu {
+                max-height: 10em;
+            }
+        }    
+    }
+} 
+    
+    ///////////////////|Hamburger button
+.hamburger_button {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+        transition: 0.3s ease;
+    }
+}
+.hamburger_button:hover {
+    cursor: pointer;
+}
+
+///////////////////|Burger transforms on toggle
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/////////////////////////////////////////////////////////
+///////////////////|MEDIA QUERIES BELOW 760px
+@media only screen and (max-width: 800px) {
+    ////////-----------|Make hamburger button visible
+    .hamburger_button {
+        display: block;
+    }
+    ////////-----------|Nav bar
+    //|set sliding animation speed here
+    .wrapper {
+        .nav_bar {
+            width: 100vw;
+            transition: transform 400ms ease-out;
+            transform: translateX(-1000px);
+            z-index: 9999;
+        }
+    }
+    ////////-----------|Nav bar toggle
+    //|Nav bar open toggle value for javascript
+    .nav_bar.open {
+        transform: translateX(0);
+    }
+}

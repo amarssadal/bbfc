@@ -1,0 +1,127 @@
+
+///////////////////|Quick global reset
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+///////////////////|Variable Declaration
+//|Nav bar
+$nav_bar_width: 250px;
+$nav_background_colour: #12101B;
+$nav_text_color: white;
+$nav_bar_font: 'Open Sans', sans-serif;
+
+//|Body
+$body_background_color: #F1F1F1;
+$donate_button_background_color: #DE294A;
+
+//|Colors
+$color_primary: #DE294A;
+$color_secondary: #280F98;
+$color_secondary_dark: #1D0B6C;
+$color_info: #2F80ED;
+$color_success: #27AE60;
+$color_warning: #E2B93B;
+$color_error: #EB5757;
+$color_black1: #12101B;
+$color_black2: #1D1B26;
+$color_black3: #282730;
+$color_grey5: #f1f1f1;
+$color_white: #ffffff;
+
+$wrapper_background: #1D1B26;
+
+
+//|Fonts
+$serif_font: 'PT-Serif', serif;
+$sans_serif_font: 'Open Sans', sans-serif;
+
+//|Font sizings
+$h1: 56px;
+$h2: 48px;
+$h3: 40px;
+$h4: 32px;
+$h5: 24px;
+$h6: 20px;
+$weight_extra_bold: 800;
+$weight_bold: 600;
+$weight_normal: 400;
+$large_text: 20px;
+$medium_text: 18px;
+$normal_text: 16px;
+$small_text: 14px;
+
+
+///////////////////|Commons
+h1 {    font-size: $h1; font-weight: 400; }
+h2 {    font-size: $h2; font-weight: 400; }
+h3 {    font-size: $h3; font-weight: 400; }
+h4 {    font-size: $h4; font-weight: 400; }
+h5 {    font-size: $h5; font-weight: 400; }
+h6 {    font-size: $h6; font-weight: 600; }
+
+///////////////////|HTML
+html {
+    min-height: 100vh;
+}
+
+///////////////////|Body
+body {
+    font-size: $normal_text;
+    font-family: $sans_serif_font;
+    margin-left: $nav_bar_width;
+    color: white;
+    max-width:1040px;
+}
+
+
+.button_with_arrow {
+    font-size: $large_text;
+    padding: 15px 20px;
+    display: grid;
+    grid-template-columns: 250px 1fr 15px;
+    .arrow {
+        position: relative;
+        top: 3px;
+        right: 5px;
+        opacity: .50;
+        font-size: 24px;
+        z-index: 0;
+    }
+}
+
+.stick_box::before {
+    content: '';
+    width: 5px;
+    background: $color_secondary;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.background_color_red {
+    font-weight: 600;
+    background-color: $donate_button_background_color;
+}
+
+.section_margins {
+    padding: 40px;
+}
+
+/////////////////////////////////////////////////////////
+///////////////////|MEDIA QUERIES BELOW 760px
+@media only screen and (max-width: 800px) {
+    ////////-----------|Section margins
+    .section_margins {
+        padding: 20px 20px 20px 20px;
+    }
+    .section_margins:last-child {
+        padding: 20px 0px 0px 20px;
+    }
+}

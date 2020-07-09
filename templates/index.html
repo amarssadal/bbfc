@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
+{% endblock %}
 {% block title %}Black British Classical Foundation{% endblock %}
 
 {% block content %}
-    <div class="content">
+    <div class="index">
         <div class="index_main section_margins">
-            <div class="first stick_box">
-                <div class="stick">
-                    <!-- for the blue stick -->
+            <div class="first">
+                <div class="logo_mobile">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BBCF">
                 </div>
-                <div class="content">
+                <div class="content stick_box">
                     <h4>We are the Black British Classical Foundation</h4>
                     <p>We exist to nurture interest and participation in classical arts, especially in communities of colour in the UK and beyond.</p>
                 </div>
@@ -26,20 +29,14 @@
                 <div class="imagebox"><img src="{{ url_for('static', filename='/images/image_2.png') }}"/></div>
                 <div class="pad3"></div>
             </div>
-            <div class="fourth stick_box">
-                <div class="stick">
-                    <!-- for the blue stick -->
-                </div>
-                <div class="blue_transparency_bar">
-                    <!-- blue transparency bar -->
-                </div>
-                <div class="content">
-                    <!-- <div class="bgbox2">
-                    </div> -->
-                    <div class="button_with_arrow">
-                        <div>Watch the film</div>
-                        <div></div>
-                        <div><ion-icon class="arrow" name="chevron-forward-circle"></ion-icon></div>
+            <div class="fourth">
+                <div class="content stick_box">
+                    <div class="film_box_bar">
+                        <div class="button_with_arrow">
+                            <div>Watch the film</div>
+                            <div></div>
+                            <div><ion-icon class="arrow" name="chevron-forward-circle"></ion-icon></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,10 +70,7 @@
             <div class="events_box">
                 <div class="featured_event">
                     <div class="featured_main">
-                        <div class="stick">
-                            <!-- for the blue flag stick -->
-                        </div>
-                        <div class="featured_content">
+                        <div class="featured_content stick_box">
                             <div class="featured_title">
                                 <div class="featured_dates">
                                     6 September - 12 October
@@ -98,10 +92,7 @@
                 </div>
                 <div class="event">
                     <div class="event_main">
-                        <div class="stick">
-                            <!-- for the blue flag stick -->
-                        </div>
-                        <div class="box_content">
+                        <div class="box_content stick_box">
                             <div class="box_title">
                                 <div class="box_dates">
                                     6 September
@@ -119,10 +110,7 @@
                 </div>
                 <div class="event">
                     <div class="event_main">
-                        <div class="stick">
-                            <!-- for the blue flag stick -->
-                        </div>
-                        <div class="box_content">
+                        <div class="box_content stick_box">
                             <div class="box_title">
                                 <div class="box_dates">
                                     6 September
