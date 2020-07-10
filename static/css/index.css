@@ -41,11 +41,15 @@ html {
 }
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Open Sans", sans-serif;
   margin-left: 250px;
   color: white;
   max-width: 1040px;
+}
+
+.logo_mobile {
+  display: none;
 }
 
 .button_with_arrow {
@@ -53,17 +57,27 @@ body {
   padding: 15px 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 250px 1fr 15px;
-      grid-template-columns: 250px 1fr 15px;
+  -ms-grid-columns: 250px 1fr 25px;
+      grid-template-columns: 250px 1fr 25px;
 }
 
-.button_with_arrow .arrow {
-  position: relative;
-  top: 3px;
-  right: 5px;
+.button_with_arrow .fas {
   opacity: .50;
-  font-size: 24px;
   z-index: 0;
+  font-size: 24px;
+  position: relative;
+  top: 2px;
+  right: 8px;
+}
+
+.donate {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  width: 200px;
+  background: #DE294A;
+  -ms-grid-columns: 2fr 1fr 15px;
+      grid-template-columns: 2fr 1fr 15px;
 }
 
 .stick_box::before {
@@ -74,7 +88,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
 }
 
 .background_color_red {
@@ -86,12 +99,116 @@ body {
   padding: 40px;
 }
 
+.footer {
+  font-family: "Open Sans", sans-serif;
+  background-color: #1D1B26;
+  padding: 25px 0 0;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 10px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -ms-grid-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
+      grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
+      grid-template-areas: "top top top" "left padd right" "bottom bottom bottom";
+}
+
+.footer .top {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: top;
+  margin: 20px 0 20px 40px;
+}
+
+.footer .left {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: left;
+  margin-left: 40px;
+}
+
+.footer .left p {
+  margin: 20px 0;
+}
+
+.footer .left p:first-child {
+  margin-top: 0px;
+}
+
+.footer .padd {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: padd;
+}
+
+.footer .right {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: right;
+}
+
+.footer .bottom {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: bottom;
+  text-align: right;
+  background-color: #12101B;
+  padding: 35px 20px 35px;
+}
+
+.footer .bottom span {
+  font-size: 12px;
+  margin: 0 20px;
+  color: #969696;
+  display: inline-block;
+}
+
 @media only screen and (max-width: 800px) {
+  body {
+    margin-left: 0;
+  }
+  .logo_mobile {
+    padding: 40px;
+    display: block;
+  }
+  .logo_mobile img {
+    width: 25%;
+    min-width: 100px;
+  }
   .section_margins {
     padding: 20px 20px 20px 20px;
   }
   .section_margins:last-child {
     padding: 20px 0px 0px 20px;
+  }
+  .footer {
+    margin: 0;
+    padding: 20px 0 20px 20px;
+    padding-right: 0px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "top" "left" "right" "bottom";
+  }
+  .footer .top {
+    margin: 0 0 20px 20px;
+  }
+  .footer .top h1 {
+    font-size: 32px;
+  }
+  .footer .left {
+    padding-right: 40px;
+    margin-left: 20px;
+  }
+  .footer .bottom {
+    padding: 10px;
+    margin: 0;
+  }
+  .footer .bottom span {
+    display: block;
+    padding: 5px 10px 10px 0px;
+    margin: 0;
   }
 }
 
@@ -150,10 +267,6 @@ body {
   background-color: #12101B;
   position: relative;
   padding: 40px;
-}
-
-.index_main .first .logo_mobile {
-  display: none;
 }
 
 .index_main .second {
@@ -281,7 +394,7 @@ body {
 }
 
 .index_main p {
-  font-size: 16px;
+  font-size: 14px;
   margin: 20px 0;
 }
 
@@ -461,7 +574,7 @@ body {
 .index_newsletter .newsletter_form input[type=email], .index_newsletter .newsletter_form input[type=submit] {
   height: 60px;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   border: 0;
   width: 95%;
@@ -534,84 +647,11 @@ body {
   grid-area: text;
 }
 
-.footer {
-  font-family: "Open Sans", sans-serif;
-  background-color: #1D1B26;
-  padding: 25px 0 0;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
-      grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
-      grid-template-areas: "top top top" "left padd right" "bottom bottom bottom";
-}
-
-.footer .top {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: top;
-  margin: 20px 0 20px;
-}
-
-.footer .left {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: left;
-}
-
-.footer .left p {
-  margin: 20px 0;
-}
-
-.footer .left p:first-child {
-  margin-top: 0px;
-}
-
-.footer .padd {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: padd;
-}
-
-.footer .right {
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
-  grid-area: right;
-}
-
-.footer .bottom {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: bottom;
-  text-align: right;
-  background-color: #12101B;
-  padding: 35px 20px 35px;
-}
-
-.footer .bottom span {
-  font-size: 14px;
-  margin: 0 20px;
-  color: #969696;
-  display: inline-block;
-}
-
 @media only screen and (max-width: 800px) {
-  body {
-    margin-left: 0;
-  }
   .index_main {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         grid-template-areas: "first" "fourth";
-  }
-  .index_main .first .logo_mobile {
-    display: block;
-    margin: 0px 0 40px;
-  }
-  .index_main .first .logo_mobile img {
-    width: 25%;
-    min-width: 100px;
   }
   .index_main .second {
     display: none;
@@ -696,32 +736,6 @@ body {
   }
   .index_performances .performances_events .events_box .events_text {
     margin-left: 20px;
-  }
-  .footer {
-    margin: 0;
-    padding: 20px;
-    padding-right: 0px;
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        grid-template-areas: "top" "left" "right" "bottom";
-  }
-  .footer .top {
-    margin: 0 0 20px 0;
-  }
-  .footer .top h1 {
-    font-size: 32px;
-  }
-  .footer .left {
-    padding-right: 40px;
-  }
-  .footer .bottom {
-    padding: 10px;
-    margin: 0;
-  }
-  .footer .bottom span {
-    display: block;
-    padding: 5px 10px 10px 0px;
-    margin: 0;
   }
 }
 /*# sourceMappingURL=index.css.map */

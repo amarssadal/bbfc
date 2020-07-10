@@ -47,14 +47,16 @@ $h3: 40px;
 $h4: 32px;
 $h5: 24px;
 $h6: 20px;
-$weight_extra_bold: 800;
+$weight_extra_bold: 700;
 $weight_bold: 600;
 $weight_normal: 400;
+$weight_light: 300;
 $large_text: 20px;
 $medium_text: 18px;
-$normal_text: 16px;
-$small_text: 14px;
+$normal_text: 14px;
+$small_text: 12px;
 
+//|Generals
 
 ///////////////////|Commons
 h1 {    font-size: $h1; font-weight: 400; }
@@ -78,20 +80,32 @@ body {
     max-width:1040px;
 }
 
+.logo_mobile {
+    display: none;
+}
 
 .button_with_arrow {
     font-size: $large_text;
     padding: 15px 20px;
     display: grid;
-    grid-template-columns: 250px 1fr 15px;
-    .arrow {
-        position: relative;
-        top: 3px;
-        right: 5px;
+    grid-template-columns: 250px 1fr 25px;
+    .fas {
         opacity: .50;
-        font-size: 24px;
         z-index: 0;
+        font-size: 24px;
+        position: relative;
+        top: 2px;
+        right: 8px;
     }
+}
+
+.donate {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 200px;
+    background: $color_primary;
+    grid-template-columns: 2fr 1fr 15px;
 }
 
 .stick_box::before {
@@ -102,7 +116,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
 }
 
 .background_color_red {
@@ -114,14 +127,98 @@ body {
     padding: 40px;
 }
 
+
+///////////////////|Page footer
+.footer {
+    font-family: $sans_serif_font;
+    background-color: $color_black2;
+    padding: 25px 0 0;
+    display: grid;
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
+    grid-template-areas:    "top top top"
+                            "left padd right"
+                            "bottom bottom bottom";
+    .top {
+        grid-area: top;
+        margin: 20px 0 20px 40px;
+    }
+    .left {
+        grid-area: left;
+        margin-left: 40px;
+        p {
+            margin: 20px 0;
+        }
+        p:first-child {
+            margin-top: 0px;
+        }
+    }
+    .padd {
+        grid-area: padd;
+    }
+    .right {
+        grid-area: right;
+    }
+    .bottom {
+        grid-area: bottom;
+        text-align: right;
+        background-color: $nav_background_colour;
+        padding: 35px 20px 35px;
+        span {
+            font-size: $small_text;
+            margin: 0 20px;
+            color: rgb(150, 150, 150);
+            display: inline-block;
+        }
+    }
+}
+
+
 /////////////////////////////////////////////////////////
 ///////////////////|MEDIA QUERIES BELOW 760px
 @media only screen and (max-width: 800px) {
+
+    body {
+        margin-left: 0;
+    }
+
+    .logo_mobile {
+        padding: 40px;
+        display: block;
+        img {
+            width: 25%;
+            min-width: 100px;
+        }
+    }
     ////////-----------|Section margins
     .section_margins {
         padding: 20px 20px 20px 20px;
     }
     .section_margins:last-child {
         padding: 20px 0px 0px 20px;
+    }
+
+    ////////-----------|Footer
+    .footer{
+        margin: 0;
+        padding: 20px 0 20px 20px;
+        padding-right: 0px;
+        grid-template-columns: 1fr;
+        grid-template-areas:    "top" "left" "right" "bottom";    
+        .top {
+            h1 { font-size: 32px; }
+            margin: 0 0 20px 20px;
+        }
+        .left { padding-right: 40px; margin-left: 20px;  }
+        .bottom {
+            padding: 10px;
+            margin: 0;
+            span {
+                display: block;
+                padding: 5px 10px 10px 0px;
+                margin: 0;
+            }
+        }
     }
 }

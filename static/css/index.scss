@@ -45,10 +45,7 @@
         background-color: $color_black1;
         position: relative;
         padding: 40px;
-        .logo_mobile {
-            display: none;
-        }
-    }
+    } 
     .second {
         grid-area: second;
         position: relative;
@@ -304,68 +301,14 @@
     }
 }
 
-///////////////////|Page footer
-.footer {
-    font-family: $sans_serif_font;
-    background-color: $color_black2;
-    padding: 25px 0 0;
-    display: grid;
-    grid-template-columns: minmax(100px, 400px) minmax(50px, 1fr) minmax(200px, 400px);
-    grid-template-areas:    "top top top"
-                            "left padd right"
-                            "bottom bottom bottom";
-    .top {
-        grid-area: top;
-        margin: 20px 0 20px;
-    }
-    .left {
-        grid-area: left;
-        p {
-            margin: 20px 0;
-        }
-        p:first-child {
-            margin-top: 0px;
-        }
-    }
-    .padd {
-        grid-area: padd;
-    }
-    .right {
-        grid-area: right;
-    }
-    .bottom {
-        grid-area: bottom;
-        text-align: right;
-        background-color: $nav_background_colour;
-        padding: 35px 20px 35px;
-        span {
-            font-size: $small_text;
-            margin: 0 20px;
-            color: rgb(150, 150, 150);
-            display: inline-block;
-        }
-    }
-}
-
 
 
 /////////////////////////////////////////////////////////
 ///////////////////|MEDIA QUERIES BELOW 760px
 @media only screen and (max-width: 800px) {
-    body {
-        margin-left: 0;
-    }
 
     ////////-----------|Index Main
     .index_main {
-        .first .logo_mobile {
-            display: block;
-            margin: 0px 0 40px;
-            img {
-                width: 25%;
-                min-width: 100px;
-            }
-        }
         grid-template-columns: 1fr;
         grid-template-areas: "first" "fourth";
         .second {
@@ -457,29 +400,6 @@
                 .events_text {
                     margin-left: 20px;
                 }
-            }
-        }
-    }
-
-    ////////-----------|Footer
-    .footer{
-        margin: 0;
-        padding: 20px;
-        padding-right: 0px;
-        grid-template-columns: 1fr;
-        grid-template-areas:    "top" "left" "right" "bottom";    
-        .top {
-            h1 { font-size: 32px; }
-            margin: 0 0 20px 0;
-        }
-        .left { padding-right: 40px; }
-        .bottom {
-            padding: 10px;
-            margin: 0;
-            span {
-                display: block;
-                padding: 5px 10px 10px 0px;
-                margin: 0;
             }
         }
     }

@@ -1,19 +1,252 @@
 @import 'variables';
 
 .our_work {
-    background-color: $color_white;
-    color: $color_black1;
     position: relative;
     .page_heading {
+        color: $color_black1;
+        background-color: $color_grey5;
+        display: grid;
+        grid-template-columns: 2fr minmax(250px, 1fr);
+        position: relative;
+        padding-bottom: 55px;
+        margin-left: 40px;
+        .left {
+            .h3 {
+                font-family: $serif_font, serif;
+                font-size: 40px;
+                margin-bottom: 20px;
+                .subtext {
+                    font-family: $sans_serif_font;
+                }
+            }
+        }
+        .right {
+            .contact_box {
+                position: absolute;
+                right: 0;
+                top: 25%;
+                background-color: $color_white;
+                padding: 20px;
+                width: 250px;
+                height: 120px;
+                p {
+                    margin: 5px 0;
+                }
+                .bold {
+                    font-weight: $weight_extra_bold;
+                }
+            }
+        }
+    }
+    .page_content {
         margin: 40px;
-        .h3 {
-            font-family: $serif_font;
-            font-size: 40px;
+        padding: 20px;
+        color: $color_black1;
+        h4 {
+            margin: 60px 0 20px;
         }
-        .subtext {
-            font-family: $sans_serif_font;
+        h4:first-child {
+            margin: 20px 0 0;
         }
+        .text_block {
+            position: relative;
+            margin: 20px 0;
+            .container {
+                margin: 20px 0;
+            }
+        }
+        .stick_box {
+            margin-left: 20px;
+            font-weight: $weight_normal;
+            .number_head {
+                font-size: $h3;
+                font-weight: 600;
+                color: $color_secondary;
+            }
+        }
+        .image_box {
+            row-gap: 20px;
+            column-gap: 20px;
+            padding: 20px 0;
+        }
+        .one_image {
+            display: grid;
+            justify-content: center;
+        }
+        .two_image {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            img {
+                width: 100%;
+            }
+            // div:last-of-type img  {
+            //     width:100%;
+            // }
+        }
+        .patrons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 60px;
+            .patron {
+                margin: 20px 0 0;
+                position: relative;
+                .patron_image {
+                    margin: 10px 0;
+                }
+                .patron_image::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100px;
+                    z-index: -10;
+                    content: '';
+                    background-color: $color_grey5;
+                }
+                .patron_name {
+                    font-weight: $weight_bold;
+                    font-size: $medium_text;
+                    margin: 10px 0;
+                }
+                .patron_title {
+                    font-size: $small_text;
+                    margin: 20px 0;
+                }
+            }
+        }
+        .testimonials {
+            .testimonial {
+                position: relative;
+                .quote {
+                    margin-bottom: 20px;
+                }
+                .quote::before, .quote::after {
+                    content: '"';
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    z-index: 10;
+                    font-size: $h2;
+                    opacity: .6;
+                }
+                .quote::before {
+                    top: -15px;
+                    left: -35px;
+                }
+                .quote::after {
+                    bottom: 90px;
+                    right: -10px;
+                }
+                .name_box {
+                    display: grid;
+                    grid-template-columns: 60px 1fr;
+                    grid-template-areas: "image name" "image title";
+                    .blue_box {
+                        margin-bottom: 20px;
+                    }
+                    .image {
+                        grid-area: image;
+                        img {
+                            width: 50px;
+                        }
+                    }
+                    .name {
+                        grid-area: name;
+                        font-weight: $weight_bold;
+                        font-size: $medium_text;
+                    }
+                    .title {
+                        grid-area: title;
+                        font-size: $small_text;
+                    }
+                }
+            }
+        }
+        .fact_box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 60px;
+            margin: 40px 0;
+            .fact {
+                position: relative;
+            }
+        }
+        .blue_box {
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 20px;
+            color: $color_secondary;
+        }
+    }
+    .page_content:first-child {
+        margin: 0;
+        padding-bottom: 0px;
     }
 }
 
+body::before {
+    content: '';
+    width: 100vw;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color_black2;
+    z-index: 5;
+}
 
+/////////////////////////////////////////////////////////
+///////////////////|MEDIA QUERIES BELOW 760px
+@media only screen and (max-width: 800px) {
+
+    .our_work {
+        .page_heading {
+            margin-left: 0;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 160px;
+            .right {
+                .contact_box {
+                    top: 55%;
+                }
+            }
+        }
+        .page_content {
+            margin: 20px 20px 60px 20px;
+            padding: 10px;
+            .patrons {
+                grid-template-columns: 1fr;
+                column-gap: 0;
+                row-gap: 20px;
+                .patron {
+                    .patron_title {
+                        margin: 10px 0;
+                    }
+                }
+            }
+            .two_image {
+                grid-template-columns: 1fr;
+                img {
+                    max-width: 400px;
+                }
+            }
+            .fact_box {
+                grid-template-columns: 1fr;
+                row-gap: 20px;
+            }
+            .testimonials {
+                padding: 0 20px;
+                .testimonial {
+                    .quote::before {
+                        top: -25px;
+                        left: -25px;
+                    }
+                    .quote::after {
+                        bottom: 90px;
+                        right: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+}
