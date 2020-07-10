@@ -72,6 +72,9 @@
         .one_image {
             display: grid;
             justify-content: center;
+            img {
+                width: 100%;
+            }
         }
         .two_image {
             display: grid;

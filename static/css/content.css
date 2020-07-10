@@ -305,6 +305,10 @@ body {
           justify-content: center;
 }
 
+.our_work .page_content .one_image img {
+  width: 100%;
+}
+
 .our_work .page_content .two_image {
   display: -ms-grid;
   display: grid;
