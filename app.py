@@ -10,6 +10,7 @@ def create_app():
     app.config.from_envvar("APP_CONFIG_FILE", silent=True)
 
     @app.route('/')
+    @app.route('/index')
     def index():
         return render_template('index.html')
 

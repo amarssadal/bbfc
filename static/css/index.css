@@ -170,6 +170,7 @@ body {
     margin-left: 0;
   }
   .logo_mobile {
+    grid-area: logo;
     padding: 40px;
     display: block;
   }
@@ -179,9 +180,6 @@ body {
   }
   .section_margins {
     padding: 20px 20px 20px 20px;
-  }
-  .section_margins:last-child {
-    padding: 20px 0px 0px 20px;
   }
   .footer {
     margin: 0;
@@ -601,8 +599,6 @@ body {
 .index_performances {
   background-color: #ffffff;
   color: #12101B;
-  padding-left: 40px;
-  padding: 40px 0 40px 40px;
 }
 
 .performances_events {
@@ -651,7 +647,7 @@ body {
   .index_main {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas: "first" "fourth";
+        grid-template-areas: "logo" "first" "fourth";
   }
   .index_main .second {
     display: none;

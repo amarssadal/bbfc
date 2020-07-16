@@ -268,8 +268,6 @@
 .index_performances {
     background-color: $color_white;
     color: $color_black1;
-    padding-left: 40px;
-    padding: 40px 0 40px 40px;
 }
 
 .performances_events {
@@ -310,13 +308,14 @@
     ////////-----------|Index Main
     .index_main {
         grid-template-columns: 1fr;
-        grid-template-areas: "first" "fourth";
+        grid-template-areas: "logo" "first" "fourth";
         .second {
             display: none;
         }
         .third {
             display: none;
         }
+        
     }
 
     ////////-----------|Events
@@ -390,7 +389,7 @@
             .events_box {
                 display: grid;
                 grid-template-areas:    "image title"
-                "image text";
+                                        "image text";
                 .events_image {
                     height: 100px;
                 }

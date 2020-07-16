@@ -184,6 +184,7 @@ body {
     }
 
     .logo_mobile {
+        grid-area: logo;
         padding: 40px;
         display: block;
         img {
@@ -194,9 +195,6 @@ body {
     ////////-----------|Section margins
     .section_margins {
         padding: 20px 20px 20px 20px;
-    }
-    .section_margins:last-child {
-        padding: 20px 0px 0px 20px;
     }
 
     ////////-----------|Footer
