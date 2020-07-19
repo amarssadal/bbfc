@@ -1,5 +1,20 @@
 @import 'variables';
 
+body::before {
+    content: '';
+    width: 100vw;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $color_black2;
+    z-index: 5;
+}
+
+.hamburger_button div {
+    background-color: $color_black2;
+}
+
 .our_work {
     position: relative;
     .page_heading {
@@ -187,20 +202,13 @@
     }
 }
 
-body::before {
-    content: '';
-    width: 100vw;
-    height: 12px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: $color_black2;
-    z-index: 5;
-}
-
 /////////////////////////////////////////////////////////
 ///////////////////|MEDIA QUERIES BELOW 760px
 @media only screen and (max-width: 800px) {
+
+    .wrapper .fixed_top_mobile {
+        background: $color_white;
+    }
 
     .our_work {
         .page_heading {

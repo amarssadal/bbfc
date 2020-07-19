@@ -16,8 +16,9 @@ def create_app():
 
     @app.route('/our_work')
     def our_work():
-        return render_template('our_work.html')
-    
+        current = "our_work"
+        return render_template('our_work.html', current = current)
+
     return app
 
 if __name__ == "__main__":

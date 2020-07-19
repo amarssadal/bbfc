@@ -9,10 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="our_work">
-        <div class="logo_mobile">
-            <img src="{{ url_for('static', filename='images/logo_inv.png') }}" alt="BBCF">
-        </div>
+    <div class="our_work" id="our_mission">
         <div class="page_heading section_margins stick_box">
             <div class="left">
                 <h3>Our work</h3>
@@ -269,4 +266,8 @@
                 </div>
             </div>
         </div>
+        <script>
+            //setting the menu to current page destination
+            current = "our_work"
+        </script>
 {% endblock %}

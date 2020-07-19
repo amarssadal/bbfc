@@ -309,6 +309,11 @@
     .index_main {
         grid-template-columns: 1fr;
         grid-template-areas: "logo" "first" "fourth";
+        row-gap: 0px;
+        padding-right: 0;
+        .first {
+            margin-bottom: 20px;
+        }
         .second {
             display: none;
         }

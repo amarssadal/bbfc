@@ -38,12 +38,13 @@
                 }
                 .sub_menu {
                     overflow: hidden;
-                    transition: 0.3s;
+                    //transition: 0.3s;
                     max-height: 0;
                     a::before {
                         content: '';
                         width: 2px;
                         background: $color_secondary;
+                        opacity: .6;
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -58,14 +59,14 @@
                     }
                 }
             }
-            .item:target .sub_menu {
-                max-height: 10em;
-            }
+            // .item:target .sub_menu {
+            //     max-height: 10em;
+            // }
         }    
     }
 } 
     
-    ///////////////////|Hamburger button
+///////////////////|Hamburger button
 .hamburger_button {
     display: none;
     position: fixed;
@@ -80,6 +81,12 @@
         transition: 0.3s ease;
     }
 }
+
+///////////////////|To make hamburger buttons lighter or darker depending on background - used by Javascript
+.make_light .line1, .make_light .line2, .make_light .line3  {
+    background-color: $color_white;
+}
+
 .hamburger_button:hover {
     cursor: pointer;
 }
@@ -111,10 +118,10 @@
             transform: translateX(-1000px);
             z-index: 9999;
         }
-    }
-    ////////-----------|Nav bar toggle
-    //|Nav bar open toggle value for javascript
-    .nav_bar.open {
-        transform: translateX(0);
+        ////////-----------|Nav bar toggle
+        //|Nav bar open toggle value for javascript
+        .nav_bar.open {
+            transform: translateX(0);
+        }
     }
 }
