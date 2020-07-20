@@ -42,16 +42,18 @@ $sans_serif_font: 'TP Atten', sans-serif;
 $sans_serif_OS: 'Open sans', sans-serif;
 
 //|Font sizings
-$h1: 56px;
-$h2: 48px;
-$h3: 40px;
+$h1: 40px;
+$h2: 32px;
+$h3: 24px;
 $h4: 32px;
 $h5: 24px;
 $h6: 20px;
+
 $weight_extra_bold: 700;
 $weight_bold: 600;
 $weight_normal: 400;
 $weight_light: 300;
+
 $large_text: 20px;
 $medium_text: 18px;
 $normal_text: 14px;
@@ -116,14 +118,21 @@ body {
     font-size: $large_text;
     padding: 15px 20px;
     display: grid;
-    grid-template-columns: 1fr 24px 25px;
-    .fas {
+    grid-template-columns: 1fr 24px 60px;
+    div:first-child {
+        text-align: right;
+    }
+    div {
+        align-self: center;
+        position: relative;
+    }
+    div .img {
         opacity: .50;
         z-index: 0;
         font-size: 24px;
-        position: relative;
-        top: 2px;
-        right: 8px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
     }
 }
 
@@ -170,6 +179,7 @@ body {
     .top {
         grid-area: top;
         margin: 20px 0 20px 40px;
+        font-family: $sans_serif_font;
     }
     .left {
         grid-area: left;
@@ -186,6 +196,12 @@ body {
     }
     .right {
         grid-area: right;
+        font-family: $sans_serif_font;
+        .button_with_arrow {
+            div:first-child {
+                text-align: left;
+            }
+        }
     }
     .bottom {
         grid-area: bottom;
@@ -200,7 +216,6 @@ body {
         }
     }
 }
-
 
 /////////////////////////////////////////////////////////
 ///////////////////|MEDIA QUERIES BELOW 760px
@@ -225,8 +240,9 @@ body {
         width: 100%;
         height: 65px;
     }
+
     ////////-----------|Section margins
-    .section_margins {
+    .section_margins, section_margins:last-child {
         padding: 20px 20px 20px 20px;
     }
 
@@ -234,14 +250,17 @@ body {
     .footer{
         margin: 0;
         padding: 20px 0 0;
-        padding-right: 0px;
         grid-template-columns: 1fr;
-        column-gap: 0; 
+        grid-template-areas:    "top" "left" "right" "bottom";
+        column-gap: 0;
+        row-gap: 0;
         .top {
             h1 { font-size: 32px; }
             margin: 0 0 20px 20px;
         }
+        .padd { display: none; }
         .left { padding-right: 40px; margin-left: 20px;  }
+        .right { padding-left: 20px; }
         .bottom {
             padding: 10px;
             margin: 0;

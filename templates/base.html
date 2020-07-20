@@ -28,7 +28,7 @@
                 {% endblock %}
                 <div class="footer section_margins">
                     <div class="top">
-                        <h3>We need your support</h3>
+                        <h2>We need your support</h2>
                     </div>
                     <div class="left">
                             <p>
@@ -42,23 +42,33 @@
                         <!-- for padding -->
                     </div> 
                     <div class="right">
-                        
+                        <div class="button_with_arrow background_color_red">
+                            <div>Donate</div>
+                            <div></div>
+                            <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                        </div>
+                        <div class="button_with_arrow">
+                            <div>Volunteer</div>
+                            <div></div>
+                            <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                        </div>
+                        <div class="button_with_arrow">
+                            <div>Collaborate</div>
+                            <div></div>
+                            <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                        </div>
+                        <div class="button_with_arrow">
+                            <div>Perform</div>
+                            <div></div>
+                            <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                        </div>
                     </div>
                     <div class="bottom">
                         <span>
-                            Terms of Use
+                            &copy; {{ now.year }} British Black Classical Foundation
                         </span>
                         <span>
-                            Privacy
-                        </span>
-                        <span>
-                            Accessibility
-                        </span>
-                        <span>
-                            Privacy and Cookie Notice
-                        </span>
-                        <span>
-                            &copy 2020 Black British Classical Foundation
+                            Registered Charity 1156138
                         </span>
                     </div>
                 </div>

@@ -12,143 +12,152 @@ body {
         margin: 0px 0px 20px;
         color: $color_black2;
     }
-    .button_with_arrow {
-        font-size: $large_text;
-        padding: 15px 20px;
-        display: grid;
-        grid-template-columns: 200px 1fr 15px;
-        .arrow {
-            position: relative;
-            top: 3px;
-            right: 5px;
-            opacity: .50;
-            font-size: 24px;
-            z-index: 0;
-        }
-    }
 }
 
 ///////////////////|Content - Main
 .index_main {
     background-color: $color_black2;
-    position: relative;
     display: grid;
-    column-gap: 20px;
-    row-gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:    "first first first first second second second"
-                            "third third third fourth fourth fourth fourth";
-    .donate{
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        background-color: $color_error;
-    }
-    .first {
-        grid-area: first;
-        background-color: $color_black1;
+    padding-right: 0;
+    .donate_button {
         position: relative;
-        padding: 40px;
-        h4 {
-            font-family: 'TP Atten';
-        }
-    } 
-    .second {
-        grid-area: second;
-        position: relative;
-        justify-self: left;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 2fr;
-        grid-template-areas:    "one two"
-                                "image three";
-        .pad1 { grid-area: one; }
-        .imagebox {
-            z-index: 10;
-            grid-area: image;
-            position: relative;
-            img {
-                width: 100%;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-        }
-        .imagebox::before {
-            content: '';
-            width: 340px;
-            height: 200px;
-            background-color: $color_black1;
-            position: absolute;
-            top: 50px;
-            left: 100px;
-        }
-        .pad2 { grid-area: two; }
-        .pad3 { grid-area: three; }
-    }
-    .third {
-        grid-area: third;
-        justify-self: right;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-areas:    "one image"
-                                "two three";
-        .pad1 { grid-area: one; }
-        .imagebox {
-            grid-area: image;
-            z-index: 5;
-            img {
-                width: 100%;
-            }
-        }
-        .pad2 { grid-area: two; }
-        .pad3 { grid-area: three; }
-        .imagebox::before {
-            content: '';
-            width: 280px;
-            height: 120px;
-            background-color: $color_black1;
-            position: absolute;
-            top: 380px;
-            left: 250px;
-            z-index: -10;
-        }
-    }
-    .fourth {
-        cursor: pointer;
-        grid-area: fourth;
-        background-color: $color_black1;
-        height: 250px;
-        background-image: url('/images/image_video.png');
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: 100%;
-        position: relative;
-        z-index: 10;
+        z-index: 100;
         .button_with_arrow {
-            width: 250px;
+            background-color: $donate_button_background_color;
+            margin: 0;
+            width: 200px;
             position: absolute;
-            bottom: 0px;
+            right: 0;
+            top: 0;
+        }
+    }
+    .box_box {
+        padding-right: 40px;
+        position: relative;
+        display: grid;
+        column-gap: 20px;
+        row-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:    "first first first first second second second"
+                                "third third third fourth fourth fourth fourth";
+        .donate{
+            position: absolute;
+            top: 0px;
             right: 0px;
-            background-color: rgba($color: black, $alpha: .5);
+            background-color: $color_error;
         }
-        .film_box_bar::before {
-            content: '';
-            position: absolute;
-            height: 100%;
-            width: 40px;
-            height: 100%;
-            background: rgba($color: $color_secondary, $alpha: .25);
+        .first {
+            grid-area: first;
+            background-color: $color_black1;
+            position: relative;
+            padding: 40px;
+            h4 {
+                font-family: 'TP Atten';
+            }
+        } 
+        .second {
+            grid-area: second;
+            position: relative;
+            justify-self: left;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 2fr;
+            grid-template-areas:    "one two"
+                                    "image three";
+            .pad1 { grid-area: one; }
+            .imagebox {
+                z-index: 10;
+                grid-area: image;
+                position: relative;
+                img {
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+            .imagebox::before {
+                content: '';
+                width: 340px;
+                height: 200px;
+                background-color: $color_black1;
+                position: absolute;
+                top: 50px;
+                left: 100px;
+            }
+            .pad2 { grid-area: two; }
+            .pad3 { grid-area: three; }
+        }
+        .third {
+            grid-area: third;
+            justify-self: right;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas:    "one image"
+                                    "two three";
+            .pad1 { grid-area: one; }
+            .imagebox {
+                grid-area: image;
+                z-index: 5;
+                img {
+                    width: 100%;
+                }
+            }
+            .pad2 { grid-area: two; }
+            .pad3 { grid-area: three; }
+            .imagebox::before {
+                content: '';
+                width: 280px;
+                height: 120px;
+                background-color: $color_black1;
+                position: absolute;
+                top: 380px;
+                left: 250px;
+                z-index: -10;
+            }
+        }
+        .fourth {
+            cursor: pointer;
+            grid-area: fourth;
+            background-color: $color_black1;
+            height: 250px;
+            background-image: url('/images/image_video.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 100%;
+            position: relative;
+            z-index: 10;
+            .button_with_arrow {
+                width: 280px;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                background-color: rgba($color: black, $alpha: .5);
+            }
+            .film_box_bar::before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 40px;
+                height: 100%;
+                background: rgba($color: $color_secondary, $alpha: .25);
+            }
+        }
+        h4 {
+            font-family: $serif_font;
+        }
+        p {
+            font-size: $normal_text;
+            margin: 20px 0;
         }
     }
-    h4 {
-        font-family: $serif_font;
-    }
-    p {
-        font-size: $normal_text;
-        margin: 20px 0;
+    .button_with_arrow {
+        background-color: $color_black1;
+        margin-top: 40px;
+        width: 350px;
+        justify-self: right;
     }
 }
 
@@ -156,102 +165,108 @@ body {
 ///////////////////|Content - Upcoming events
 .index_events {
     color: $color_black2;
+    padding-right: 0;
     .events_announcements {
         color: $color_white;
         background-color: $color_secondary;
-        padding: 40px 40px 80px 40px;
+        padding: 20px;
         margin-bottom: 40px;
         position: relative;
+        display: grid;
+        grid-template-columns: 1fr 350px;
         p {
-            font-size: $medium_text;
+            padding: 10px 0 0;
         }
         .button_with_arrow {
             background-color: $color_secondary_dark;
             margin: 20px 0 0 20px;
-            width: 250px;
+            width: 300px;
             position: absolute;
-            right: 00px;
+            right: 0px;
             bottom: 0px;
         }
     }
-    .events_box {
-        .featured_event {
-            position: relative;
-            margin: 40px 0 0;
-            background-color: $color_black2;
-            color: $color_white;
-            .featured_main {
-                display: grid;
-                grid-template-columns: 4px 1fr 270px;
-                grid-template-areas: "stick content image"; 
-                .stick {
-                    grid-area: stick;
-                    background-color: $color_secondary;
-                }
-                .featured_content {
-                    grid-area: content;
-                    padding: 40px;
-                    grid-template-columns: 1fr 250px;
-                    .featured_title {
-                        grid-area: title;
-                        margin: 0 0 20px;
-                        .featured_dates {
-                            color: $color_white;
-                            background-color: $color_secondary;
-                            position: absolute;
-                            top: -20px;
-                            left: 0;
-                            padding: 10px 15px;
+    .content_box {
+        padding-right: 40px;
+        .events_box {
+            .featured_event {
+                position: relative;
+                margin: 40px 0 0;
+                background-color: $color_black2;
+                color: $color_white;
+                .featured_main {
+                    display: grid;
+                    grid-template-columns: 4px 1fr 270px;
+                    grid-template-areas: "stick content image"; 
+                    .stick {
+                        grid-area: stick;
+                        background-color: $color_secondary;
+                    }
+                    .featured_content {
+                        grid-area: content;
+                        padding: 40px;
+                        grid-template-columns: 1fr 250px;
+                        .featured_title {
+                            grid-area: title;
+                            margin: 0 0 20px;
+                            .featured_dates {
+                                color: $color_white;
+                                background-color: $color_secondary;
+                                position: absolute;
+                                top: -20px;
+                                left: 0;
+                                padding: 10px 15px;
+                            }
+                        }
+                        .featured_text {
+                            grid-area: text;
+                            p {
+                                margin: 10px 0;
+                            }
+                            .emphasise {
+                                font-weight: $weight_bold;
+                            }
                         }
                     }
-                    .featured_text {
-                        grid-area: text;
-                        p {
-                            margin: 10px 0;
-                        }
-                        .emphasise {
-                            font-weight: $weight_bold;
-                        }
+                    .featured_image {
+                        grid-area: image;
+                        background-color: $color_black3;
                     }
-                }
-                .featured_image {
-                    grid-area: image;
-                    background-color: $color_black3;
                 }
             }
-        }
-        .event {
-            background-color: $color_white;
-            position: relative;
-            margin: 60px 0 0;
-            .event_main {
-                display: grid;
-                grid-template-columns: 4px 1fr 270px;
-                grid-template-areas: "stick content image"; 
-                .stick {
-                    grid-area: stick;
-                    background-color: $color_secondary;
-                }
-                .box_content {
-                    grid-area: content;
-                    padding: 40px;
-                    grid-template-columns: 1fr 250px;
-                    .box_title      {
-                        grid-area: title;
-                        .box_dates {
-                            color: $color_white;
-                            background-color: $color_secondary;
-                            position: absolute;
-                            top: -20px;
-                            left: 0;
-                            padding: 10px 15px;
+            .event {
+                background-color: $color_white;
+                position: relative;
+                margin: 60px 0 0;
+                .event_main {
+                    display: grid;
+                    grid-template-columns: 4px 1fr 270px;
+                    grid-template-areas: "stick content image"; 
+                    // .stick {
+                    //     grid-area: stick;
+                    //     background-color: $color_secondary;
+                    // }
+                    .box_content {
+                        grid-area: content;
+                        padding: 40px;
+                        grid-template-columns: 1fr 250px;
+                        .box_title      {
+                            grid-area: title;
+                            .box_dates {
+                                color: $color_white;
+                                background-color: $color_secondary;
+                                position: absolute;
+                                top: -20px;
+                                left: 0;
+                                padding: 10px 15px;
+                            }
                         }
+                        .box_text       {   grid-area: text }
                     }
-                    .box_text       {   grid-area: text }
-                }
-                .box_image {
-                    grid-area: image;
-                    background-color: $color_black2;
+                    .box_image {
+                        grid-area: image;
+                        background-color: $color_black2;
+                    }
                 }
             }
         }
@@ -264,6 +279,7 @@ body {
     display: grid;
     justify-content: center;
     background-color: $color_grey5;
+    padding-top: 20px;
     .newletter_head {
         text-align: center;
         margin: 10px 0;
@@ -275,9 +291,9 @@ body {
         display: grid;
         grid-template-columns: 3fr 1fr;
         margin-bottom: 20px;
+        font-family: $sans_serif_font;
         input[type=email], input[type=submit] {
             height: 60px;
-            font-family: $sans_serif_font;
             font-size: $normal_text;
             font-weight: $weight_bold;
             border: 0;
@@ -286,6 +302,7 @@ body {
         input[type=email] {
             margin-right: 20px;
             padding: 0 20px;
+            border: 1px solid black;
         }
         input[type=submit] {
             background-color: $color_primary;
@@ -378,43 +395,67 @@ body {
 
     ////////-----------|Index Main
     .index_main {
-        grid-template-columns: 1fr;
-        grid-template-areas: "logo" "first" "fourth";
-        row-gap: 0px;
-        padding-right: 0;
-        .first {
-            margin-bottom: 20px;
+        .donate_button {
+            .button_with_arrow {
+                background-color: $donate_button_background_color;
+                margin: 0;
+                width: 200px;
+                position: absolute;
+                right: 0;
+                top: 260px;
+            }
         }
-        .second {
-            display: none;
+        .box_box {
+            grid-template-columns: 1fr;
+            grid-template-areas: "logo" "first" "fourth";
+            row-gap: 0px;
+            padding-right: 0;
+            .first {
+                margin-bottom: 20px;
+            }
+            .second {
+                display: none;
+            }
+            .third {
+                display: none;
+            }
+            .fourth {
+                margin-top: 80px;
+            }
         }
-        .third {
-            display: none;
+        .button_with_arrow {
+            margin-top: 20px;
         }
-        
     }
 
     ////////-----------|Events
     .index_events {
-        .events_box {
-            padding: 20px 0;
-            .featured_event {
-                .featured_main {
-                    grid-template-columns: 4px 1fr;
-                    grid-template-areas:    "stick image"
-                                            "stick content";
-                    .featured_image {
-                        height: 200px;
+        .events_announcements {
+            padding-bottom: 80px;
+            grid-template-columns: 1fr;
+        }
+        .content_box {
+            padding-right: 20px;
+            .events_box {
+                .featured_event {
+                    .featured_main {
+                        grid-template-columns: 4px 1fr;
+                        grid-template-areas:    "stick image"
+                                                "stick content";
+                        .featured_image {
+                            height: 200px;
+                        }
                     }
                 }
-            }
-            .event {
-                .event_main {
-                    grid-template-columns: 4px 1fr;
-                    grid-template-areas:    "stick image"
-                                            "stick content";
-                    .box_image {
-                        height: 200px;
+                .event {
+                    margin: 40px 0 0;
+                    .event_main {
+                        grid-template-columns: 4px 1fr;
+                        grid-template-areas:    "stick image"
+                                                "stick content";
+                        .box_image {
+                            height: 200px;
+                        }
                     }
                 }
             }
@@ -425,7 +466,6 @@ body {
     .index_newsletter {
         display: grid;
         justify-content: center;
-        background-color: $color_black2;
         .newsletter_form {
             justify-content: center;
             align-items: center;
@@ -439,18 +479,17 @@ body {
                 input[type=submit] {
                     width: 100%;
                 }
-                input[type=submit]:hover {
-                    transform: scale(1.05);
-                }
             }
         }
     }
         
     ////////-----------|Performances
     .index_performances {
-        .content_head {
-            .button_with_arrow {
-                display: none;
+        .content_box {
+            .content_head {
+                .button_with_arrow {
+                    display: none;
+                }
             }
         }
         .performances_events {
