@@ -2,6 +2,12 @@
 
 from flask import Flask, render_template
 from datetime import datetime
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from flask_migrate import Migrate
+
+from models import db, Event
+
 
 def create_app():
     app = Flask(__name__, instance_relative_config=True, static_url_path="")
@@ -9,21 +15,31 @@ def create_app():
     app.config.from_pyfile("default.py")
     app.config.from_envvar("APP_CONFIG_FILE", silent=True)
 
+
+    migrate = Migrate(compare_type=True)
+    migrate.init_app(app, db)
+
+    admin = Admin(app)
+    admin.add_view(ModelView(Event, db.session))
+    
     @app.context_processor
     def inject_now():
         return {'now': datetime.utcnow()}
+    db.init_app(app)
 
     @app.route('/')
     @app.route('/index')
     def index():
-        return render_template('index.html')
+        events = Event.query.order_by(Event.date.desc()).limit(3)
+        return render_template('index.html', events=events)
 
     @app.route('/our_work')
     def our_work():
         current = "our_work"
-        return render_template('our_work.html', current = current)
+        return render_template('our_work.html', current=current)
 
     return app
+
 
 if __name__ == "__main__":
     flask_app = create_app()

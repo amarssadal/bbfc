@@ -75,7 +75,9 @@
                         <h4>What's on</h4>
                     </div>
                 </div>
-                <div class="events_box">
+            </div>
+            <div class="events_box">
+                {% for event in events %}
                     <div class="event">
                         <div class="event_main">
                             <div class="box_content stick_box">
@@ -105,6 +107,12 @@
                                 </div>
                                 <div class="box_text">
                                     Join award winning live musician Michaela Allen and classical singer Anna Llewellyn for a live-streamed concert hosted by Suffolk Pianos.
+                                        {{ event.day_and_month }}
+                                    </div>
+                                    <h5>{{ event.title }} - {{ event.location }}</h5>
+                                </div>
+                                <div class="box_text">
+                                    {{ event.description }}
                                 </div>
                             </div>
                             <div class="box_image">
@@ -112,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
 
