@@ -2,6 +2,7 @@ const hamburger_button = document.querySelector('.hamburger_button');
 const hamburger_button_color_object = document.querySelectorAll('.hamburger_button div');
 const nav_bar = document.querySelector('.nav_bar');
 
+////////////////////////HAMBURGER BUTTON ACTION
 hamburger_button.addEventListener('click', () => {
     //Toggle Nav
     nav_bar.classList.toggle('open');
@@ -9,7 +10,7 @@ hamburger_button.addEventListener('click', () => {
     hamburger_button.classList.toggle('make_light');
 });
 
-// Open the menu for current webpage:
+////////////////////////TO OPEN THE MENU OF CURRENT WEBPAGE WHEN A USER HAS ARRIVED AT THAT PAGE
 const page = window.location.href.split("/").pop().split('#');
 const current_bookmark = page[1];
 const current_page = page[0];
@@ -29,7 +30,7 @@ if (current_page !== 'index') {
     document.getElementById(current_page).getElementsByClassName("sub_menu")[0].style.maxHeight = '10em';
 }
 
-// make current selection bold
+////////////////////////MAKE LINK TO THE CURRENTLY OPENED PAGE BOLD IN THE MENU
 [...document.querySelectorAll('.links')].forEach(link => {
     link.addEventListener('click', function() {
         [...document.querySelectorAll('.links')].forEach(x => {
@@ -42,16 +43,37 @@ if (current_page !== 'index') {
     })
 })
 
-// change mobile logo to black or white depending on page selected
+////////////////////////CHANGE THEN MOBILE LOGO TO BLACK OR WHITE DEPENDING ON THE PAGE OPENED
 if (current_page == 'index') {
     document.querySelector('.mobile_head_logo').src = '/images/logo_mobile_white.png';
 } else if (current_page == 'our_work') {
     document.querySelector('.mobile_head_logo').src = '/images/logo_mobile_black.png';
 }
 
-// if menu drop is enabled closing the menu once a link is clicked
+////////////////////////IF MENU DROP IS ENABLED - THIS WILL CLOSE THE MENU ONCE A LINK IS CLICKED
 function closeNav() {
     nav_bar.classList.toggle('open');
     hamburger_button_color_object.classList.toggle('hamburger_button_color');
     hamburger_button.classList.toggle('toggle');
 }
+
+
+////////////////////////MODAL WINDOW
+const modal = document.querySelector('.modal_window');
+const modal_button = document.querySelector('.modal_button');
+const modal_close = document.querySelector('.modal_close');
+const vid = document.querySelector(".YouTube");
+modal_button.addEventListener('click', function () {
+    vid.src="https://www.youtube.com/embed/Ghy7sYavIbw?enablejsapi=1";
+    modal.style.display = 'grid';
+})
+modal_close.addEventListener('click', function() {
+    modal.style.display = 'none';
+    vid.src = '';
+})
+window.addEventListener('click', function(event) {
+    if(event.target == modal) {
+        modal.style.display = 'none';
+        vid.src = '';
+    }
+})

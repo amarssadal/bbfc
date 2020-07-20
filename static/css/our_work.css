@@ -6,34 +6,64 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: regular;
+  src: url("../fonts/TPAtten-Regular.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 500;
+  src: url("../fonts/TPAtten-Medium.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 700;
+  src: url("../fonts/TPAtten-Bold.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 800;
+  src: url("../fonts/TPAtten-ExtraBold.otf");
+}
+
 h1 {
   font-size: 56px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h2 {
   font-size: 48px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h3 {
   font-size: 40px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h4 {
   font-size: 32px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h5 {
   font-size: 24px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h6 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 html {
@@ -42,7 +72,7 @@ html {
 
 body {
   font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   margin-left: 250px;
   color: white;
   max-width: 1040px;
@@ -59,8 +89,8 @@ body {
   padding: 15px 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 250px 1fr 25px;
-      grid-template-columns: 250px 1fr 25px;
+  -ms-grid-columns: 1fr 24px 25px;
+      grid-template-columns: 1fr 24px 25px;
 }
 
 .button_with_arrow .fas {
@@ -102,7 +132,6 @@ body {
 }
 
 .footer {
-  font-family: "Open Sans", sans-serif;
   background-color: #1D1B26;
   padding: 25px 0 0;
   display: -ms-grid;
@@ -256,7 +285,7 @@ body::before {
 }
 
 .our_work .page_heading .left .h3 .subtext {
-  font-family: "Open Sans", sans-serif;
+  font-family: "TP Atten", sans-serif;
 }
 
 .our_work .page_heading .right .contact_box {
@@ -525,4 +554,4 @@ body::before {
     right: 0px;
   }
 }
-/*# sourceMappingURL=content.css.map */
+/*# sourceMappingURL=our_work.css.map */

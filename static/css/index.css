@@ -6,34 +6,64 @@
   text-decoration: none;
 }
 
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: regular;
+  src: url("../fonts/TPAtten-Regular.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 500;
+  src: url("../fonts/TPAtten-Medium.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 700;
+  src: url("../fonts/TPAtten-Bold.otf");
+}
+
+@font-face {
+  font-family: 'TP Atten';
+  font-weight: 800;
+  src: url("../fonts/TPAtten-ExtraBold.otf");
+}
+
 h1 {
   font-size: 56px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h2 {
   font-size: 48px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h3 {
   font-size: 40px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h4 {
   font-size: 32px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h5 {
   font-size: 24px;
   font-weight: 400;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h6 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 html {
@@ -42,7 +72,7 @@ html {
 
 body {
   font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open sans", sans-serif;
   margin-left: 250px;
   color: white;
   max-width: 1040px;
@@ -59,8 +89,8 @@ body {
   padding: 15px 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 250px 1fr 25px;
-      grid-template-columns: 250px 1fr 25px;
+  -ms-grid-columns: 1fr 24px 25px;
+      grid-template-columns: 1fr 24px 25px;
 }
 
 .button_with_arrow .fas {
@@ -102,7 +132,6 @@ body {
 }
 
 .footer {
-  font-family: "Open Sans", sans-serif;
   background-color: #1D1B26;
   padding: 25px 0 0;
   display: -ms-grid;
@@ -218,6 +247,10 @@ body {
   }
 }
 
+body {
+  background-color: #f1f1f1;
+}
+
 .index .content_head {
   display: -ms-grid;
   display: grid;
@@ -275,6 +308,10 @@ body {
   padding: 40px;
 }
 
+.index_main .first h4 {
+  font-family: 'TP Atten';
+}
+
 .index_main .second {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
@@ -300,13 +337,28 @@ body {
 }
 
 .index_main .second .imagebox {
+  z-index: 10;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: image;
+  position: relative;
 }
 
 .index_main .second .imagebox img {
   width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.index_main .second .imagebox::before {
+  content: '';
+  width: 340px;
+  height: 200px;
+  background-color: #12101B;
+  position: absolute;
+  top: 50px;
+  left: 100px;
 }
 
 .index_main .second .pad2 {
@@ -346,6 +398,7 @@ body {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: image;
+  z-index: 5;
 }
 
 .index_main .third .imagebox img {
@@ -364,7 +417,19 @@ body {
   grid-area: three;
 }
 
+.index_main .third .imagebox::before {
+  content: '';
+  width: 280px;
+  height: 120px;
+  background-color: #12101B;
+  position: absolute;
+  top: 380px;
+  left: 250px;
+  z-index: -10;
+}
+
 .index_main .fourth {
+  cursor: pointer;
   -ms-grid-row: 2;
   -ms-grid-column: 4;
   -ms-grid-column-span: 4;
@@ -376,6 +441,7 @@ body {
   background-position: center top;
   background-size: 100%;
   position: relative;
+  z-index: 10;
 }
 
 .index_main .fourth .button_with_arrow {
@@ -405,7 +471,6 @@ body {
 }
 
 .index_events {
-  background-color: #ffffff;
   color: #1D1B26;
 }
 
@@ -498,9 +563,9 @@ body {
 }
 
 .index_events .events_box .event {
+  background-color: #ffffff;
   position: relative;
   margin: 60px 0 0;
-  background-color: #f1f1f1;
 }
 
 .index_events .events_box .event .event_main {
@@ -561,12 +626,16 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #1D1B26;
+  background-color: #f1f1f1;
 }
 
 .index_newsletter .newletter_head {
   text-align: center;
   margin: 10px 0;
+}
+
+.index_newsletter .newletter_head h6 {
+  color: #12101B;
 }
 
 .index_newsletter .newsletter_form {
@@ -579,7 +648,7 @@ body {
 
 .index_newsletter .newsletter_form input[type=email], .index_newsletter .newsletter_form input[type=submit] {
   height: 60px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "TP Atten", sans-serif;
   font-size: 14px;
   font-weight: 600;
   border: 0;
@@ -651,6 +720,53 @@ body {
   grid-area: text;
 }
 
+.modal_window {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 10000;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: hidden;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Black w/ opacity */
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal_window .modal_content {
+  color: white;
+  width: 500px;
+  font-size: 90px;
+}
+
+.modal_window .modal_content .modal_close {
+  color: #f1f1f1;
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.modal_window .modal_content .modal_close:hover, .modal_window .modal_content .modal_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 800px) {
   .index_main {
     -ms-grid-columns: 1fr;
@@ -666,12 +782,6 @@ body {
     display: none;
   }
   .index_main .third {
-    display: none;
-  }
-  .index_events .content_head {
-    margin: 0 0 10px;
-  }
-  .index_events .content_head .button_with_arrow {
     display: none;
   }
   .index_events .events_box {
