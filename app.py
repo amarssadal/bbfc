@@ -25,7 +25,7 @@ def create_app():
     @app.route('/')
     @app.route('/index')
     def index():
-        events = Event.query.all()
+        events = Event.query.order_by(Event.date.desc()).limit(3)
         return render_template('index.html', events=events)
 
     @app.route('/our_work')
