@@ -1,4 +1,4 @@
-SQLALCHEMY_DATABASE_URI = "postgresql://localhost/bbcf"
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:securepassword12@localhost:5432/bbcf"
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 

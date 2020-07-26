@@ -14,7 +14,6 @@ hamburger_button.addEventListener('click', () => {
 const page = window.location.href.split("/").pop().split('#');
 const current_bookmark = page[1];
 const current_page = page[0];
-console.log(current_page, current_bookmark);
 
 const menus = document.querySelectorAll('.nav_bar > .menu > .item');
 for (const menu of menus) {
@@ -26,7 +25,7 @@ for (const menu of menus) {
     })
 }
 
-if (current_page !== 'index') {
+if (current_page === 'our_work') {
     document.getElementById(current_page).getElementsByClassName("sub_menu")[0].style.maxHeight = '10em';
 }
 
@@ -77,3 +76,4 @@ window.addEventListener('click', function(event) {
         vid.src = '';
     }
 })
+console.log('executed')
