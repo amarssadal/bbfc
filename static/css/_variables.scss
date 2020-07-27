@@ -30,6 +30,7 @@ $color_error: #EB5757;
 $color_black1: #12101B;
 $color_black2: #1D1B26;
 $color_black3: #282730;
+$color_grey2: #4F4F4F;
 $color_grey5: #f1f1f1;
 $color_white: #ffffff;
 
@@ -45,9 +46,9 @@ $sans_serif_OS: 'Open sans', sans-serif;
 $h1: 40px;
 $h2: 32px;
 $h3: 24px;
-$h4: 32px;
-$h5: 24px;
-$h6: 20px;
+$h4: 20px;
+$h5: 55px;
+$h6: 55px;
 
 $weight_extra_bold: 700;
 $weight_bold: 600;
@@ -107,13 +108,13 @@ body {
     max-width:1040px;
 }
 
-///////////////////|Head for mobile
+///////////////////|Headboard for mobile
 .fixed_top_mobile {
     display: none;
     box-shadow: 0px 7px 13px -7px rgba(0,0,0,0.24);
 }
 
-///////////////////|Commons
+///////////////////|Commons - to use anywhere
 .button_with_arrow {
     font-size: $large_text;
     padding: 15px 20px;
@@ -217,10 +218,10 @@ body {
     }
 }
 
-/////////////////////////////////////////////////////////
-///////////////////|MEDIA QUERIES BELOW 760px
+/////////////////////////////////////////////////////////|
+///////////////////|MEDIA QUERIES BELOW 760px|///////////|
+/////////////////////////////////////////////////////////|
 @media only screen and (max-width: 800px) {
-
     body {
         margin-left: 0;
     }

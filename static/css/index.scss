@@ -279,12 +279,13 @@ body {
     display: grid;
     justify-content: center;
     background-color: $color_grey5;
-    padding-top: 20px;
+    height: 174px;
     .newletter_head {
         text-align: center;
         margin: 10px 0;
-        h6 {
+        h4 {
             color: $color_black1;
+            font-weight: $weight_bold;
         }
     }
     .newsletter_form {
@@ -293,7 +294,7 @@ body {
         margin-bottom: 20px;
         font-family: $sans_serif_font;
         input[type=email], input[type=submit] {
-            height: 60px;
+            height: 56px;
             font-size: $normal_text;
             font-weight: $weight_bold;
             border: 0;
@@ -302,7 +303,7 @@ body {
         input[type=email] {
             margin-right: 20px;
             padding: 0 20px;
-            border: 1px solid black;
+            border: 1px solid $color_grey2;
         }
         input[type=submit] {
             background-color: $color_primary;
