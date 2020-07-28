@@ -1,1 +1,1 @@
-web: export APP_CONFIG_FILE=prod.py; flask db upgrade; python app.py
+web: flask db upgrade; gunicorn app:app;
