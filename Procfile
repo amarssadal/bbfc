@@ -1,1 +1,1 @@
-web: ./app.sh
+web: export APP_CONFIG_FILE=prod.py; flask db upgrade; python app.py
