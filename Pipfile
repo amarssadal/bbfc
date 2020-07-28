@@ -14,7 +14,6 @@ flask-admin = "*"
 flask-security = "*"
 email-validator = "*"
 flask-heroku = "*"
-gunicorn = "*"
 
 [requires]
 python_version = "3.7"
