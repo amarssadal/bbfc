@@ -11,6 +11,8 @@ flask-migrate = "*"
 psycopg2-binary = "*"
 flask-sqlalchemy = "*"
 flask-admin = "*"
+flask-security = "*"
+email-validator = "*"
 
 [requires]
 python_version = "3.7"
