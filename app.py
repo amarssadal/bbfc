@@ -19,6 +19,9 @@ def create_app():
     app.config.from_pyfile("default.py")
     app.config.from_envvar("APP_CONFIG_FILE", silent=True)
 
+    heroku = Heroku()
+    heroku.init_app(app)
+
     db.init_app(app)
 
     migrate = Migrate(compare_type=True)
@@ -29,9 +32,6 @@ def create_app():
 
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)
     security = Security(app, user_datastore)
-
-    heroku = Heroku()
-    heroku.init_app(app)
 
     @app.context_processor
     def inject_now():
