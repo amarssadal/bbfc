@@ -12,14 +12,20 @@
                 <div class="button_with_arrow">
                     <div>Donate</div>
                     <div></div>
-                    <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                    <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>
                 </div>
             </div>
             <div class="box_box">
                 <div class="first">
                     <div class="content stick_box">
+<<<<<<< HEAD
                         <h1>We are the Black British Classical Foundation</h1>
                         <p>We exist to nurture interest and participation in classical arts, especially in communities of colour in the UK and beyond.</p>
+=======
+                        <h4>We are the Black British Classical Foundation</h4>
+                        <p>We exist to nurture interest and participation in classical arts, especially in communities
+                            of colour in the UK and beyond.</p>
+>>>>>>> 57cbf6eba35fe54953ba36b593bdbd46bb03e64f
                     </div>
                 </div>
                 <div class="second image1">
@@ -40,7 +46,7 @@
                             <div class="button_with_arrow">
                                 <div>Watch the film</div>
                                 <div></div>
-                                <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                                <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>
                             </div>
                         </div>
                     </div>
@@ -49,7 +55,7 @@
             <div class="button_with_arrow">
                 <div>More about our work</div>
                 <div></div>
-                <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>
             </div>
         </div>
         <div class="index_events section_margins">
@@ -66,7 +72,7 @@
                 <div class="button_with_arrow">
                     <div>Find out more </div>
                     <div></div>
-                    <div><img src="{{ url_for('static', filename='/images/svg/icon_arrow.svg') }}"></div>
+                    <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>
                 </div>
             </div>
             <div class="content_box">
@@ -76,7 +82,8 @@
                     </div>
                 </div>
             </div>
-            <div class="events_box">
+            <div class="content_box">
+                <div class="events_box">
                 {% for event in events %}
                     <div class="event">
                         <div class="event_main">
@@ -97,8 +104,8 @@
                         </div>
                     </div>
                 {% endfor %}
+                </div>
             </div>
-        </div>
 
         <div class="index_newsletter section_margins">
             <form action="#" method="post">

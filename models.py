@@ -1,12 +1,28 @@
+from flask_login import UserMixin
+from flask_security import RoleMixin
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String, nullable=False)
-    # password =
+    email = db.Column(db.String(255), unique=True)
+    password = db.Column(db.String(80))
+    active = db.Column(db.Boolean())
+    roles = db.relationship('Role', secondary='user_roles', backref='user', lazy=True)
+
+
+class Role(db.Model, RoleMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(255))
+
+
+class UserRoles(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"))
+    role_id = db.Column(db.Integer, db.ForeignKey("role.id", ondelete="CASCADE"))
 
 
 class Event(db.Model):
