@@ -49,19 +49,19 @@ h3 {
 }
 
 h4 {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 400;
   font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h5 {
-  font-size: 24px;
+  font-size: 55px;
   font-weight: 400;
   font-family: "TP Atten", sans-serif, sans-serif;
 }
 
 h6 {
-  font-size: 20px;
+  font-size: 55px;
   font-weight: 700;
   font-family: "TP Atten", sans-serif, sans-serif;
 }
@@ -664,7 +664,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #f1f1f1;
-  padding-top: 20px;
+  height: 174px;
 }
 
 .index_newsletter .newletter_head {
@@ -672,8 +672,9 @@ body {
   margin: 10px 0;
 }
 
-.index_newsletter .newletter_head h6 {
+.index_newsletter .newletter_head h4 {
   color: #12101B;
+  font-weight: 600;
 }
 
 .index_newsletter .newsletter_form {
@@ -686,7 +687,7 @@ body {
 }
 
 .index_newsletter .newsletter_form input[type=email], .index_newsletter .newsletter_form input[type=submit] {
-  height: 60px;
+  height: 56px;
   font-size: 14px;
   font-weight: 600;
   border: 0;
@@ -696,7 +697,7 @@ body {
 .index_newsletter .newsletter_form input[type=email] {
   margin-right: 20px;
   padding: 0 20px;
-  border: 1px solid black;
+  border: 1px solid #4F4F4F;
 }
 
 .index_newsletter .newsletter_form input[type=submit] {
