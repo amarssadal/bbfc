@@ -15,6 +15,7 @@ flask-security = "*"
 email-validator = "*"
 flask-heroku = "*"
 bcrypt = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
