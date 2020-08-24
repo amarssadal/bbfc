@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 import os
 
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for
 from datetime import datetime
 from flask_admin import Admin, helpers
-from flask_admin.contrib.sqla import ModelView
 from flask_admin.menu import MenuLink
 from flask_heroku import Heroku
-from flask_login import login_required, current_user
 from flask_migrate import Migrate
-from flask_security import SQLAlchemyUserDatastore, Security, url_for_security
+from flask_security import SQLAlchemyUserDatastore, Security
 
+from admin import AdminModelView
 from instance.default import ADMIN_EMAIL, ADMIN_PASSWORD
 from models import db, Event, User, Role
 
@@ -28,15 +27,6 @@ def create_app():
 
     migrate = Migrate(compare_type=True)
     migrate.init_app(app, db)
-
-    class AdminModelView(ModelView):
-
-        def is_accessible(self):
-            return current_user.is_active and current_user.is_authenticated
-
-        def _handle_view(self, name, **kwargs):
-            if not self.is_accessible():
-                return redirect(url_for('security.login'))
 
     admin = Admin(app)
     admin.add_view(AdminModelView(Event, db.session))

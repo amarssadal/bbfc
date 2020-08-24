@@ -1,3 +1,5 @@
+import os
+
 from flask_login import UserMixin
 from flask_security import RoleMixin
 from flask_sqlalchemy import SQLAlchemy
@@ -38,3 +40,7 @@ class Event(db.Model):
     def day_and_month(self):
         if self.date:
             return self.date.strftime("%d %B")
+
+    @property
+    def image_url(self):
+        return os.path.join('/events', self.image)

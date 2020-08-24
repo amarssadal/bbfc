@@ -1,6 +1,6 @@
 import os
 
-SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or "postgresql://localhost:5432/bbcf"
+SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or "postgresql:///bbcf"
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -15,3 +15,5 @@ DEBUG = True
 
 ADMIN_EMAIL = "admin"
 ADMIN_PASSWORD = "glassk967"
+
+IMAGE_BASE_PATH = 'static/events/'
