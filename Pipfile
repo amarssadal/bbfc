@@ -16,6 +16,7 @@ email-validator = "*"
 flask-heroku = "*"
 bcrypt = "*"
 pillow = "*"
+mailchimp-marketing = {git = "https://github.com/mailchimp/mailchimp-marketing-python.git",editable = true}
 
 [requires]
 python_version = "3.7"

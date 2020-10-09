@@ -17,3 +17,5 @@ ADMIN_EMAIL = "admin"
 ADMIN_PASSWORD = "glassk967"
 
 IMAGE_BASE_PATH = 'static/events/'
+
+MAILCHIMP_API_KEY = 'd1c55cb99260f96e3ad2260075dd9819-us16'
