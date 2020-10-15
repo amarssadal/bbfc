@@ -13,8 +13,8 @@ them better access to opera and the classical arts.">
 {% block content %}
     <div class="index">
         <div class="index_main section_margins">
-            <div class="donate_button">
-                <div class="button_with_arrow">
+            <div class="donate_button" onclick="window.open('https://www.paypal.com/paypalme/my/profile');">
+                <div class="button_with_arrow" onclick="window.open('https://www.paypal.com/paypalme/my/profile');">
                     <div>Donate</div>
                     <div></div>
                     <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>
@@ -109,13 +109,13 @@ them better access to opera and the classical arts.">
             </div>
 
         <div class="index_newsletter section_margins">
-            <form action="#" method="post">
+            <form action="/signup" method="post">
                 <div class="newletter_head">
                     <h4>Stay up-to-date with our BBCF newsletter</h4>
                 </div>
                 <div class="newsletter_form">
                     <div class="sub">
-                        <input type="email" placeholder="Enter email address" maxlength="40" name="newsletter_email" />
+                        <input type="email" placeholder="Enter email address" maxlength="40" name="email" />
                     </div>
                     <div class="sub">
                         <input type="submit" value="Sign Up">

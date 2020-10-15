@@ -121,6 +121,7 @@ body {
   background: #DE294A;
   -ms-grid-columns: 2fr 1fr 15px;
       grid-template-columns: 2fr 1fr 15px;
+  cursor: pointer;
 }
 
 .stick_box::before {
@@ -294,6 +295,7 @@ body {
 .index_main .donate_button {
   position: relative;
   z-index: 100;
+  cursor: pointer;
 }
 
 .index_main .donate_button .button_with_arrow {

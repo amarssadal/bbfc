@@ -25,6 +25,16 @@
                 {% include 'components/menu.html' %}
             </nav>
             <div class="main">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flashes" onclick="this.style.display = 'none'"
+                             style="padding: 1em; color: white; background-color: #DE294A;">
+                            {% for message in messages %}
+                                <h4>{{ message }}</h4>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
                 {% block content %}
                 {% endblock %}
                 <div class="footer section_margins">
@@ -45,7 +55,8 @@
                         <!-- for padding -->
                     </div> 
                     <div class="right">
-                        <div class="button_with_arrow background_color_red">
+                        <div class="button_with_arrow background_color_red" style="cursor: pointer;"
+                             onclick="window.open('https://www.paypal.com/paypalme/my/profile');">
                             <div>Support BBCF</div>
                             <div></div>
                             <div><img src="{{ url_for('static', filename='/images/svg/Icon_arrow.svg') }}"></div>

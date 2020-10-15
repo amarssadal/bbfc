@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+import json
 import os
 
-from flask import Flask, render_template, url_for
+import requests
+from flask import Flask, render_template, url_for, request, flash, redirect
 from datetime import datetime
 from flask_admin import Admin, helpers
 from flask_admin.menu import MenuLink
@@ -10,7 +12,7 @@ from flask_migrate import Migrate
 from flask_security import SQLAlchemyUserDatastore, Security
 
 from admin import AdminModelView
-from instance.default import ADMIN_EMAIL, ADMIN_PASSWORD
+from instance.default import ADMIN_EMAIL, ADMIN_PASSWORD, LIST_ID
 from models import db, Event, User, Role
 
 
@@ -67,6 +69,25 @@ def create_app():
     def our_work():
         current = "our_work"
         return render_template('our_work.html', current=current)
+
+    @app.route('/signup', methods=['POST'])
+    def signup():
+        email = request.form.get('email')
+        api_key = os.environ.get('MAILCHIMP_API_KEY')
+        if not api_key or not email:
+            flash('Sorry, there was an error during signup. Please come back later and try again!')
+            return redirect(url_for('index'))
+        server_number = api_key[-4:]
+        url = f"https://{server_number}.api.mailchimp.com/3.0/lists/{LIST_ID}/members"
+        headers = {'content-type': 'application/json', 'Authorization': f"Basic {api_key}"}
+        data = {'email_address': email, 'status': 'subscribed'}
+        response = requests.post(url, headers=headers, data=json.dumps(data))
+        print(response.status_code)
+        if response.ok:
+            flash('Thanks for signing up to our newsletter!')
+        else:
+            flash('Sorry, there was an error during signup. Please come back later and try again!')
+        return redirect(url_for('index'))
 
     return app
 
