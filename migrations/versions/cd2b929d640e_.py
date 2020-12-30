@@ -1,4 +1,4 @@
-"""empty message
+"""Add user table and events table
 
 Revision ID: cd2b929d640e
 Revises: 

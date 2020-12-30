@@ -33,6 +33,7 @@ def create_app():
     admin = Admin(app)
     admin.add_view(AdminModelView(Event, db.session))
     admin.add_link(MenuLink(name="Website", endpoint="index"))
+    admin.add_link(MenuLink(name="Login", url="/login"))
     admin.add_link(MenuLink(name="Logout", url='/logout'))
 
     user_datastore = SQLAlchemyUserDatastore(db, User, Role)
