@@ -99,8 +99,10 @@ them better access to opera and the classical arts.">
                                 </div>
                             </div>
                             <div class="box_image">
+                                {% if event.image %}
                                 <img src="{{ url_for('static', filename=event.image_url) }}" style="width: 20em"
                                      alt="image for event">
+                                {% endif %}
                             </div>
                         </div>
                     </div>
