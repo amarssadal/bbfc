@@ -35,6 +35,7 @@ class Event(db.Model):
     description = db.Column(db.String)
     image = db.Column(db.String)
     location = db.Column(db.String)
+    url = db.Column(db.String)
 
     @property
     def day_and_month(self):

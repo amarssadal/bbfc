@@ -13,7 +13,8 @@ them better access to opera and the classical arts.">
 {% block content %}
     <div class="index">
         <div class="index_main section_margins">
-            <div class="donate_button" onclick="window.open('https://www.justgiving.com/blackbritishclassicalfdn');">
+            <div class="donate_button"
+                 onclick="window.open('https://donate.justgiving.com/donation-amount?uri=aHR0cHM6Ly9kb25hdGUtYXBpLmp1c3RnaXZpbmcuY29tL2FwaS9kb25hdGlvbnMvY2QwMTQyMjNhZDZmNGM5YmE1MGEzMDk0OTAzZWFkYmQ=');">
                 <div class="button_with_arrow">
                     <div>Donate</div>
                     <div></div>
@@ -86,25 +87,27 @@ them better access to opera and the classical arts.">
                 <div class="events_box">
                 {% for event in events %}
                     <div class="event">
-                        <div class="event_main">
-                            <div class="box_content stick_box">
-                                <div class="box_title">
-                                    <div class="box_dates">
-                                        {{ event.day_and_month }}
+                        {% if event.url %}<a href="{{event.url}}" target="_blank">{% endif %}
+                            <div class="event_main" style="color: black !important;">
+                                <div class="box_content stick_box">
+                                    <div class="box_title">
+                                        <div class="box_dates">
+                                            {{ event.day_and_month }}
+                                        </div>
+                                        <h3>{{ event.title }} - {{ event.location }}</h3>
                                     </div>
-                                    <h3>{{ event.title }} - {{ event.location }}</h3>
+                                    <div class="box_text">
+                                        {{ event.description }}
+                                    </div>
                                 </div>
-                                <div class="box_text">
-                                    {{ event.description }}
+                                <div class="box_image">
+                                    {% if event.image %}
+                                    <img src="{{ url_for('static', filename=event.image_url) }}" style="width: 20em"
+                                         alt="image for event">
+                                    {% endif %}
                                 </div>
                             </div>
-                            <div class="box_image">
-                                {% if event.image %}
-                                <img src="{{ url_for('static', filename=event.image_url) }}" style="width: 20em"
-                                     alt="image for event">
-                                {% endif %}
-                            </div>
-                        </div>
+                        {% if event.url %}</a>{% endif %}
                     </div>
                 {% endfor %}
                 </div>
