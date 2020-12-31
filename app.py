@@ -55,6 +55,7 @@ def create_app():
     @app.before_first_request
     def create_user():
         role = user_datastore.find_or_create_role("admin")
+        # password = os.environ.get('ADMIN_PASSWORD')
         if not User.query.filter_by(email=ADMIN_EMAIL).first():
             user = user_datastore.create_user(email=ADMIN_EMAIL, password=ADMIN_PASSWORD)
             user_datastore.add_role_to_user(user, role)
@@ -83,8 +84,7 @@ def create_app():
         headers = {'content-type': 'application/json', 'Authorization': f"Basic {api_key}"}
         data = {'email_address': email, 'status': 'subscribed'}
         response = requests.post(url, headers=headers, data=json.dumps(data))
-        print(response.status_code)
-        if response.ok:
+        if response.ok or response.json().get('title') == 'Member Exists':
             flash('Thanks for signing up to our newsletter!')
         else:
             flash('Sorry, there was an error during signup. Please come back later and try again!')
